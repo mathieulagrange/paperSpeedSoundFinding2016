@@ -20,7 +20,7 @@
 %\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
 % --- End of Author Metadata ---
 
-\title{A novel interface for audio based sound data mining \ml{find a better title that put the focus on semantic versus acoustic organizations}}
+\title{Semantic browsing of sound databases \\ without keywords}
 %\subtitle{[Extended Abstract]
 %\titlenote{A full version of this paper is available as
 %\textit{Author's Guide to Preparing ACM SIG Proceedings Using
@@ -60,7 +60,7 @@
 \author{Gr\'egoire Lafay$^1$}, \author{Nicolas Misdarris$^2$},
 \author{Mathieu Lagrange$^1$}, \author{Mathias Rossignol$^2$}
 \email{(gregoire.lafay@irccyn.ec-nantes.fr)}
-\affil{IRCCyN, Ecole Centrale de Nantes $^1$ \quad\quad\quad\quad IRCAM $^2$}
+\affil{IRCCyN, Ecole Centrale de Nantes $^1$ \quad\quad\quad\quad IRCAM, STMS, UPMC $^2$}
 }
 
 
@@ -105,8 +105,11 @@
 % number that will appear in the \additionalauthors section.
 
 \maketitle
+
 \begin{abstract}
-In this paper, the design of a web interface  for audio-based sound data mining is studied. The interface allows the user to explore a sound dataset without any written textual hint. Dataset sounds are grouped into semantic classes which are themselves clustered to build a semantic hierarchical structure. Each class is represented by a circle distributed on a two dimensional space according to its semantic level. Several means of displaying sounds following this template are presented and evaluated with a crowdsourcing experiment.
+In this paper, we study the relevance of a semantic organization of sounds for easing the browsing of a sound database. For such task, the semantic organization is traditionally hold thanks to a keyword selection process. However, various issues of written language like word polysemy, ambiguities translation issues may bias the browsing process.
+
+We consider here two display of sounds that are organized by considering underlying semantic information that draws a hierarchy. For the sake of comparison, we also consider a display whose organization of sound in the plane is based on acoustic cues. Those three displays are evaluated in terms of search speed in a crowd sourcing experiment. Results 
 \end{abstract}
 
 %% A category with the (minimum) three required fields
@@ -116,27 +119,39 @@ In this paper, the design of a web interface  for audio-based sound data mining 
 
 %\terms{Design, Experimentation, Human Factors}
 
-\keywords{audio-based sound data mining, listening oriented user interface, crowdsourcing experiment}
+\keywords{Audio content management and display, Semantic sound data mining}
 
 \section{Introduction}
 
-With the growing capability of recording and storage, the problem of indexing large databases of audio has recently been the object of much attention \cite{Wold1996}. Most of that effort is dedicated to the automatic inference of indexing metadata from the actual audio recording \cite{Zhang1999, Tzanetakis1999}; in contrast, the ability to browse such databases in an effective manner has been less considered. The temporal aspect of sounds has been studied in \cite{Kobayashi1997} and the use of multidimensional projection of audio features in \cite{Cano2002}.
+With the growing capability of recording and storage, the problem of indexing large databases of audio has recently been the object of much attention \cite{Wold1996}. Most of that effort is dedicated to the automatic inference of indexing metadata from the actual audio recording \cite{Zhang1999, tzanetakis2002musical}; in contrast, the ability to browse such databases in an effective manner has been less considered.
 
-Typically, a sound data mining interface is based on keyword-driven queries. The user enters a word which characterizes the desired sound, and the interface presents him with sounds related to this word. The effectiveness of this principle is primarily based on the typological structure and nomenclature of the database. However, some issues arises from this paradigm:
+
+Most media assets management are based on keyword-driven queries. The user enters a word which characterizes the desired item, and the interface presents him with items related to this word. The effectiveness of this principle is primarily based on the typological structure and nomenclature of the database. However, for databases and more specifically for databases of sounds, issues arise:
 
 \begin{enumerate}
 \item Sounds, as many others things, can be described in many ways. Sound may be designated by their
 sources (a car door), as well as by the action of those sources (the slamming of a car door) or their environments (slamming a car door in a garage) \cite{houix2012lexical, niessen2010categories, brown2011towards}. Designing an effective keyword-based search system requires an accurate description of each sound, which has to be adaptable to the sound representation of each user.
-\item Pre-defined verbal descriptions of the sounds made available to the users may potentially bias their selections.
-\item Localization of the query interface is made difficult as the translation of some words referring to qualitative aspects of the sound such as its ambience is notoriously ambiguous and subject to cultural specificities.
+\item Pre-defined verbal descriptions of the sounds made available to the users may potentially bias their browsing and final selection.
+\item Localization of the query interface is made difficult as the translation of some words referring to qualitative aspects of the sound such as its ambiance is notoriously ambiguous and subject to cultural specificities.
 \item Unless considerable time and resources are invested into developing a multilingual interface, any system based on verbal descriptions can only be used with reduced performance by non-native speakers of the chosen language.
 \end{enumerate}
 
-To avoid those issues, we propose in this paper several means of displaying sounds without relying on any textual representation. Their effectiveness is studied with a search-based task whose aim is to listen to a target sound, and browse the database using the evaluated display to find this target sound as fast as possible. The proposed displays are first described along with the dataset used for evaluation. We then explain the chosen validation protocol, before finally presenting and discussing performance results.
+To circumvent those issues, not relying on keywords is desirable. That said, semantics, which is traditionally conveyed through written text, may be important for easing browsing.  
 
-\section{Interface framework}
+To study this issue, we consider in this paper several means of displaying sounds without relying on any textual representation. One, considered as a reference baseline, do not rely on any semantic information as the sounds are organized according to their acoustical properties, \textit{i.e.} time averaged spectral features. The second one 
 
-\subsection{Dataset structure}
+Their effectiveness is studied with a search-based task whose aim is find a target sound by browsing the database using the display under evaluation.
+
+The paper is organized as follows: in Section \ref{previous} previous work on the topic of sound database browsing is reviewed. Then, the corpus used in this study is described in Section \ref{dataset}. the three displays under evaluation are next described in Section \ref{display}. The crowd sourcing test used to compare those displays is presented in Section \ref{test}. the outcomes of this experiment are discussed in Section \ref{results}.  
+
+\section{Previous work} \label{previous}
+
+Most of the research effort in Sound Design and Music Information Retrieval (MIR) communities is focused on acoustical based indexing and browsing \cite{tzanetakis2003musescape, streich2008music}. Typically, the items (sound effects or pieces of music) are modeled by processing the digital audio waveform using some signal processing pipeline in order to get a compact description for each  items
+\cite{coleman2007mused}. Then, statistical projections or embedding techniques, like Principal components analysis (PCA),  Multi Dimensional Scaling (MDS) \cite{schwarz2009sound,Cano2002}, Self Organizing Maps (SOM) \cite{pampalk2004exploring} and the like are used to project the items in a two or three dimensional space while preserving as much as possible distances among items. One of the advantage of such an approach is its ability to scale to very large databases \cite{schwarz2009scalability} as it does not need any kind of manual annotations and allows to search by similarity efficiently according to acoustical properties.
+
+Though, such acoustical models are inherently subject to observation noise and biases. Selecting the most relevant features to achieve the correct projection of the data may only be performed by an expert user. If done \textit{a priori} by an expert or by some above cited dimensionality reduction technique, the induced bias can strongly limit the user in its ability to . In that respect, semantic tags, if available for the data at hand have the advantage of implicitly structuring the similarity space, thus eventually easing the browsing process even if the actual tags are not -- as in this study -- exposed to the user.
+
+\section{Dataset} \label{dataset}
 
 The interface framework requires a pre-organization of the sound dataset it has to display. This organization is based on semantic considerations. A sound is characterized by a tag describing the source of the sound (\textit{man-yelling}, \textit{car-passing}). Sounds are then grouped into classes according to their tags (\textit{car} $>$ \textit{car-passing}; car $>$ \textit{car-starting}). Those classes are in turn  packed into classes until high level classes describing broad concepts are reached (\textit{traffic} $>$ \textit{car} $>$ \textit{car-passing}). The sound dataset is organized into a hierarchical structure of semantic classes as described in Figure~\ref{figdataset}. The different levels of this hierarchy are called semantic levels. Strictly speaking, the sound samples of the dataset are the leaf semantic levels. All the other classes are represented by a \textit{prototype sound} that best characterizes the sounds belonging to the class. 
 
@@ -147,7 +162,7 @@ In order for the semantic hierarchical structure to be perceptually valid, the \
 
 %We choose to represent each sound leaf class of our sound data set with a circle. Circles are dispatched in a 2D space and packed together according to the hierarchical structure of the sound set (see figure \ref{SSF}). The class is identified by listening to an acoustic prototype chosen by the authors for its representativeness. Clicking on a circle fires this audio prototype.
 
-\subsection{Displays}
+\section{Displays} \label{display}
 
 \begin{figure}[t]
 \begin{center}
@@ -192,7 +207,8 @@ The way in which a user visualizes the hierarchical organization varies with the
 \end{itemize}
 
 
-\section{Validation test}
+\section{Experiment} \label{test}
+
 \subsection{Objective}
 During this test, three interfaces are compared:
 \begin{itemize}
@@ -247,7 +263,8 @@ Three sets of data are collected during the experiment:
 A crowd sourcing approach has been adopted. The experiment was designed to be supported by the  \textit{chrome-browser} web navigator. The link to the experiment has been sent to the subjects via three  mailing list being \textit{music-ir, auditory} and \textit{uuu-IRCAM} (internal IRCAM mailing list). Subjects were allowed to perform the experiment once, and on one interface only. Data were automatically collected server-side at the end of the experiment. Subjects were asked to use headphones. All the presented sounds were normalized to the same root mean square (RMS) level.
 \subsection{Participants}
 60 subject have completed the experiment, 20 for each interface.
-\section{Results}
+
+\section{Results} \label{results}
 \subsection{Outlier detection}
 Outlier detection is an important step of any crowdsourcing experiment as experimenters do not control the experimental environment in which the subjects perform the experiment \cite{komarov2013crowdsourcing}\cite{buchholz2011crowdsourcing}. A widely used method to detect outlier in  human-computer interaction studies is to consider as outlier an observation  which deviates of at least $\pm2$ standard deviation ($STD$) from the average \cite{komarov2013crowdsourcing}. As this method is not robust to the presence of isolated extreme observations (as it is often the case for crowdsourcing experiment), a method using the inter-quartile range ($IQR$) proposed by \cite{komarov2013crowdsourcing} is used in this paper. With this approach, an observation is considered to be an outlier if it is more than $3*IQR$ higher than the third quartile or more than $3*IQR$ lesser than the first quartile. For normalized distribute data, the $IQR$ method remove less than 0.00023\% of the data whereas the  $STD$ method remove 4.6\% of the data \cite{komarov2013crowdsourcing}. This methods is applied to the following list of parameters:
 
