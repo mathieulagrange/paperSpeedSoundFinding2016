@@ -171,9 +171,6 @@ In order for the semantic hierarchical structure to be perceptually valid, the \
 \caption{\label{figdataset} Semantic hierarchical structure of the dataset of urban environmental sounds}
 \end{figure}
 
-
-
-
 \begin{figure}[t!]
 \begin{center}
 \includegraphics[scale=0.30]{gfx/XP2clean.pdf} 
@@ -245,128 +242,94 @@ The experiment ends when all the target sounds have been found.
 
 It is most important to note that PD do not pack up at each target sound search. When a circle is revealed, it remains visible during the whole experiment.
 
-
-
- 
 \subsection{Data Collection}
 Three sets of data are collected during the experiment:
 \begin{itemize}
 \item the total duration of the entire experiment. It includes breaks between two target sound searches and it is called the \textit{absolute duration}.
-\item the duration of each search. The sum of the 13 duration searches, which is the \textit{absolute duration} minus the break times between two target sound searches, is called \textit{the relative duration}.
+\item the duration of each search. The sum of the 13 search durations, which is the \textit{absolute duration} minus the break times between two target sound searches, is called the \textit{total search duration}.
 \item the name of each sound which has been heard.
 \item the time at which each sound has been heard.  
 \end{itemize}
 
-
-
 \subsection{Apparatus}
 A crowd sourcing approach has been adopted. The experiment was designed to be supported by the  \textit{chrome-browser} web navigator. The link to the experiment has been sent to the subjects via three  mailing list being \textit{music-ir, auditory} and \textit{uuu-IRCAM} (internal IRCAM mailing list). Subjects were allowed to perform the experiment once, and on one interface only. Data were automatically collected server-side at the end of the experiment. Subjects were asked to use headphones. All the presented sounds were normalized to the same root mean square (RMS) level.
+
 \subsection{Participants}
-60 subject have completed the experiment, 20 for each interface.
+60 subjects have completed the experiment, 20 for each interface.
+
+\subsection{Statistical analysis}
+We use one-way ANOVA and two samples \textit{t} tests at the 5\% significance level to test for statistical significance. All statistical analysis are performed using native functions of the computing environment MATLAB.
+
 
 \section{Results} \label{results}
 \subsection{Outlier detection}
-Outlier detection is an important step of any crowdsourcing experiment as experimenters do not control the experimental environment in which the subjects perform the experiment \cite{komarov2013crowdsourcing}\cite{buchholz2011crowdsourcing}. A widely used method to detect outlier in  human-computer interaction studies is to consider as outlier an observation  which deviates of at least $\pm2$ standard deviation ($STD$) from the average \cite{komarov2013crowdsourcing}. As this method is not robust to the presence of isolated extreme observations (as it is often the case for crowdsourcing experiment), a method using the inter-quartile range ($IQR$) proposed by \cite{komarov2013crowdsourcing} is used in this paper. With this approach, an observation is considered to be an outlier if it is more than $3*IQR$ higher than the third quartile or more than $3*IQR$ lesser than the first quartile. For normalized distribute data, the $IQR$ method remove less than 0.00023\% of the data whereas the  $STD$ method remove 4.6\% of the data \cite{komarov2013crowdsourcing}. This methods is applied to the following list of parameters:
 
- \begin{table}[t]
-\caption{\label{tab1} Standard deviations of the number of heard sounds per subject, with and without outliers.}
-\begin{center}
-\begin{tabular}{cccc}
-Interface &  PD &  FD& AD \\
-\hline
-with outliers & 141 & 155 & 315 \\
-without outliers & 139 & 140 & 146 \\  
-\hline
-\end{tabular}
-\end{center}
-\end{table} 
 \begin{table}[t]
-\caption{\label{tab2} Standard deviations of the \textit{relative duration} per subject, with and without outliers.}
+\caption{\label{tab1} Criterion used to detect outliers}
 \begin{center}
-\begin{tabular}{cccc}
-Interface &  PD &  FD &  AD \\
+\begin{tabular}{ccccc}
+criterion      &  1  &  2  &  3  &  4  \\
 \hline
-with outliers & 353 & 277 & 520 \\
-without outliers & 363 & 249 & 273 \\  
+outlier 1 (PD) & --- & --- & --- &  x  \\
+outlier 2 (PD) &  x  & --- & --- & --- \\  
+outlier 3 (AD) & --- & --- & --- &  x \\
+outlier 4 (AD) &  x  &  x  &  x  & --- \\
+outlier 5 (AD) &  x  & --- & --- & --- \\
 \hline
 \end{tabular}
 \end{center}
 \end{table} 
 
-\begin{table}[t]
-\caption{\label{tab3} Standard deviations of the \textit{absolute duration} per subject, with and without outliers.}
-\begin{center}
-\begin{tabular}{cccc}
-Interface &  PD &  FD &  AD \\
-\hline
-with outliers & 1401 & 339 & 4034 \\
-without outliers & 408 & 327 & 273 \\  
-\hline
-\end{tabular}
-\end{center}
-\end{table}
+Outlier detection is an important step of any crowdsourcing experiment as experimenters do not control the experimental environment in which the subjects perform the experiment \cite{komarov2013crowdsourcing}\cite{buchholz2011crowdsourcing}. A widely used method to detect outlier in  human-computer interaction studies is to consider as outlier an observation  which deviates of at least $\pm2$ standard deviation ($STD$) from the average \cite{komarov2013crowdsourcing}. As this method is not robust to the presence of isolated extreme observations (as it is often the case for crowdsourcing experiment), we follow the  method proposed by proposed by \cite{komarov2013crowdsourcing} and used the inter-quartile range ($IQR$). With this approach, an observation is considered to be an outlier if its value is more than $3*IQR$ higher than the third quartile or more than $3*IQR$ lesser than the first quartile. This methods is applied to the four following criterion :
+
+\begin{enumerate}
+\item the \textit{absolute duration}: to detect subjects who took abnormally long breaks between searches.
+\item the \textit{total search duration}: to detect subjects who took an abnormally long time to complete the experiment.
+\item number of heard sounds: to detect subjects who had to hear an abnormally high number of sounds to complete the experiment.
+\item the maximum number of times a target sound had to be heard before being found: to detect subjects who had difficulty to recognize the target sounds.
+\end{enumerate}
+
+Using the $IQR$ method, 5 subjects are detected as outliers and removed from the analysis. 2 subjects used PD and 3 subjects AD. The tables~\ref{tab1} show what criterion are use to detect outliers. 3 subjects are detected by observing the \textit{absolute duration}. They spent respectively 50 minutes, 5 hours and 17.5 hours to complete the experiment. 1 subject is detected by observing the total search duration (46 minutes), and an other by observing the total number of heard sounds (1800 heard sounds, roughly 12 times the total size of the corpus). And lastly 2 subjects are detected by observing the maximum number of times they had to hear a target sounds before finding it (4 and 8 times).
 
 
-\begin{itemize}
-\item durations of  each target sound search
-\item average duration of target sound searches
-\item maximum duration of target sound searches
-\item \textit{relative duration}
-\item \textit{absolute duration}
-\item number of heard sounds for each target sound search
-\item average number of heard sounds
-\item maximum number of heard sounds
-\item total number of heard sounds
-\end{itemize}
 
-Using the $IQR$ method, 4 subjects are detected as outliers and removed from the analysis. 1 subject used PD, 1 subject FD, and 2 subjects AD. 2 subjects are detected by observing the \textit{absolute duration} (4 and 12 hours), 1 subject by observing the total number of heard sounds (1800 heard sounds, roughly 12 times the total size of the corpus) and 1 subject by observing the number of heard sound for the first target sound search (321 heard sounds, including 21 times the target sound).
-
-The tables \ref{tab1}, \ref{tab2} and \ref{tab3} measure the effect of the presence of the  outliers on the standard deviations of three observed data being the total number of heard sounds, the \textit{relative duration} and the \textit{absolute duration}. The removal of the outliers have important effects on the data distributions, specially for AD.
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[scale=0.36]{gfx/RDbis.pdf} 
+\includegraphics[scale=0.4]{gfx/analyse1.eps} 
 \end{center}
-\caption{\label{fig1} Boxplot representing the distributions of the relative durations for the PD, FD and AD}
+\caption{\label{fig1} Average and standard deviation for (a) the total search durations, (b) the total search durations and (c) the total search durations}
 \end{figure}  
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[scale=0.36]{gfx/NBRbis.pdf} 
+\includegraphics[scale=0.4]{gfx/analyse2.eps} 
 \end{center}
-\caption{\label{fig2} Boxplot representing the distributions of the numbers of heard sounds for the PD, FD and AD}
+\caption{\label{fig2} Medians of (top) the numbers of heard sounds at each target sound search, (middle) the numbers of heard sounds without duplication (WD) at each target sound search, (bottom) the relative durations at each target sound search }
 \end{figure}
 
 
 \subsection{Interface efficiencies}
 
-To characterize the displays efficiencies, three set of collected data are assessed: 
+To characterize the interface efficiencies, three set of collected data are assessed: 
+
 \begin{itemize}
-\item the \textit{relative duration} 
+\item the \textit{total search duration}
 \item the number of heard sounds 
 \item the number of heard sounds without duplication. By "without duplication" we mean that, if a same sound prototype is heard 10 times during the 13 searches of the  experiment, it counts only for one. 
 \end{itemize}
 
 The two first data help us qualify the notion of efficiency by considering the time and the number of clicks needed to achieve the task (ie. reach the target). The goal for those values is to be as low as possible. The third data allows us to measure the selectivity of the interfaces. A low number of heard sounds without duplication indicates that subjects understood the spatial organisation of the dataset, and use this knowledge to improve their searches. In contrary, a high number of heard sounds without duplication suggest that the subject did not understood the way circles are organized in space, and tends to play all the sounds at each search. The maximum number of heard sounds without duplication is the corpus size: 149 sounds.
 
+The type of interface have a significant effect on the the \textit{total search durations} ($F[2,52]=3.63; p=0.03$), the number of heard sounds ($F[2,52]=5.65; p<0.01$) and the number of heard sounds without duplication ($F[2,52]=8.65; p<0.01$). 
 
-Concerning the \textit{relative durations}, distributions of the data are displayed on Figure~\ref{fig1} for the three interfaces. FD seems to  perform better  than the other interfaces, whereas PD and AD seem to have similar results. To refine the analysis, a two sided Wilcoxon rank sum test is considered. It is a non parametric statistical test which tests the null hypothesis that two set of observed data originate from distributions having equal median \cite{gibbons2011nonparametric}. As expected, FD is significantly better than the other interfaces (FD-PD: $p=0.0142$; FD-AD: $p=0.028$) and there is no statistical differences between PD and AD (PD-AD: $p=1$). 
+Figure~\ref{fig1}~(a) shows the average and standard deviations of the \textit{total search durations} for the three interfaces. FD seems to  perform better  than the other interfaces (FD-PD: $p=0.04$; FD-AD: $p=0.02$), whereas PD and AD seem to have similar results (PD-AD: $p=0.88$).
 
-Distributions of  the numbers of heard sounds are displayed on Figure~\ref{fig2} for the three interfaces. Results are similar of those observed for the \textit{relative durations}. FD significantly outperforms the other interfaces (FD-PD: $p=0.0115$; FD-AD: $p=0.018$), whereas PD and AD show similar outcomes (PD-AD: $p=0.3699$).
+We found similar results for the numbers of heard sounds (Figure~\ref{fig1}~(b)). FD significantly outperforms the other interfaces (FD-PD: $p=0.02$; FD-AD: $p<0.01$), whereas PD and AD show similar outcomes (PD-AD: $p=0.42$).
 
-Lastly, Figure~\ref{fig3} displays the distributions of the number of heard sounds without duplication. This time the results of AD are significantly lower than those of both PD and FD (AD-PD: $p=8.4910.10^{-4}$; AD-FD: $p=0.027$).  For AD, 75\% of the subjects heard more than 138 sounds, and 25\% heard 148 sounds, that is almost the entire database. Considering PD, 75\% of subjects heard  less than 133 sounds, against 144 for FD. There is no statistical differences between the PD and FD (PD-FD: $p=0.8607$), indicating that those two interfaces perform equally.
-
-\begin{figure}[t]
-\begin{center}
-\includegraphics[scale=0.36]{gfx/SDbis.pdf} 
-\end{center}
-\caption{\label{fig3} Boxplot representing the distributions of the numbers of heard sounds without duplication for the PD, FD and AD}
-\end{figure}
+Figure~\ref{fig1}~(c) shows the results for the number of heard sounds without duplication. This time the results of AD are significantly lower than those of both PD and FD (AD-PD: $p<0.01$; AD-FD: $p<0.01$).  For AD, 75\% of the subjects heard more than 138 sounds, and 25\% heard 148 sounds, that is almost the entire database. Considering PD, 75\% of subjects heard  less than 133 sounds, against 144 for FD. This time PD and FP seem to perform equally (PD-FD: $p=0.58$)
 
 According to those results, a hierarchical organization of the dataset based on semantic values (PD and FD) allows users to retrieve the 13 target sounds 1) quicker, and 2) by listening to a smaller amount of sounds than an organization based on acoustic descriptors (AD). But those two effects are significantly compromised when users have to parse the entire hierarchy to reach the first target sound, as it the case for PD. It seems that imposing a graphical representation of the hierarchy disturbs or confuses the user instead of allowing him to learn the spatial organization of the classes. 
-%The semantic-based spatial organization allow users to significantly improve the precision of their searches, by clicking on less different circles, irrespective of whether or not the hierarchy is imposed. 
-
-\newpage
 
 
 \subsection{Learning phenomenon}
@@ -379,31 +342,9 @@ We now study if and how users  progressively acquire knowledge about the spatial
 \item the number of heard sounds for each target sound search without duplication. 
 \end{itemize}
 
-Figure \ref{fig1PR} (bottom) displays the evolution of the medians of the durations of each target sound search observed over the subjects for PD, FD and AD. It is interesting to note that both for PD and FD, the maximum value is observed for the first search, whereas it is observed for the fourth search for AD. Moreover if the curve profiles of PD and FD  seem to progressively decrease and are very similar, the one of AD is much more irregular. If we compare PD and FD, we note  that the durations are systematically shorter for FD, except for the search 12. Furthermore, for FD, a threshold of 25 seconds is reached from the search four,  whereas it is of 50 seconds for PD. 
+Figure~\ref{fig2}~(a) shows the evolution of the average durations of each target sound search observed for PD, FD and AD. It is interesting to note that both for PD and FD, the maximum value is observed for the first search, whereas it is observed for the fourth search for AD. Moreover if the curve profiles of PD and FD  seem to progressively decrease and are very similar, the one of AD is much more irregular. Similar results are found observing the evolution of the average numbers of heard sounds with and without duplication (Figures~\ref{fig2}~(b) and (c)) 
 
-\begin{figure}[t!]
-\begin{tabular}{c}
-\includegraphics[scale=0.29]{gfx/NOHS.pdf} \\
-\includegraphics[scale=0.29]{gfx/NOHS.pdf} \\ % should be WD
-\includegraphics[scale=0.29]{gfx/duration.pdf} 
-\end{tabular}
-\caption{\label{fig1PR} Medians of (top) the numbers of heard sounds at each target sound search, (middle) the numbers of heard sounds without duplication (WD) at each target sound search, (bottom) the relative durations at each target sound search \gregoire{peux-tu ajouter WD.pdf ? la deuxieme figure}}
-\end{figure}
-%\begin{figure}[t]
-%\begin{center}
-%\includegraphics[scale=0.38]{gfx/nbrPR.pdf} 
-%\end{center}
-%\caption{\label{fig2PR} Medians of the numbers of heard sounds at each target sound search (abscissa) for the PD (top), FD (middle) and AD (bottom)}
-%\end{figure}
-%\begin{figure}[t]
-%\begin{center}
-%\includegraphics[scale=0.38]{gfx/sdPR.pdf} 
-%\end{center}
-%\caption{\label{fig3PR} Medians of the numbers of heard sounds without duplication at each target sound search (abscissa) for the PD (top),  FD (middle) and AD (bottom)}
-%\end{figure}
-Figure \ref{fig1PR} (top) displays the evolution of the medians of the numbers of heard sounds for each target sound search, observed over the subjects for the three interfaces. If the curve profiles of PD and AD seem to be similar to those respectively observed for the durations, here the maximum value for FD  is reached for the third search. Again, values of FD are mostly below those of PD, except for the search index 3,10 and 12. For both PD and FD the curves oscillate from the search four, but those oscillations occur in a range of $9-17$ for FD and  $9-30$ for PD. Similar results are found for the evolution of the medians of the numbers of heard sounds without duplication, shown on Figure \ref{fig1PR} (middle).
-
-Those results tend to indicate that PD and FD facilitate the learning of the spatial configuration, as the search durations and the numbers of heard sounds at each search decrease over time. Although curves for PD and FD have similar profiles, FD seem to better perform as users of FD where able to find the target sounds faster by clicking on fewer circles.
+These results tend to indicate that PD and FD facilitate the learning of the spatial configuration, as the search durations and the numbers of heard sounds at each search decrease over time. Although curves for PD and FD have similar profiles, FD seem to better perform as users of FD where able to find the target sounds faster by clicking on fewer circles.
 
 \section{Conclusion}
 
