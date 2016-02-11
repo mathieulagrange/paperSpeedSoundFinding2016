@@ -165,7 +165,7 @@ Though, such acoustical models are inherently subject to observation noise and b
 \begin{center}
 \includegraphics[scale=0.24]{gfx/SSF.pdf} 
 \end{center}
-\caption{\label{figSSF} Spatial configuration of the Progressive Display (PD) based on the semantic hierarchical structure of the dataset}
+\caption{\label{figSSF} Spatial configuration of the Progressive Semantic Display (PSD) based on the semantic hierarchical structure of the dataset}
 \end{figure}
 
 
@@ -182,7 +182,7 @@ In order for the semantic hierarchical structure to be perceptually valid, the \
 \begin{center}
 \includegraphics[scale=0.18]{gfx/XP3.pdf} 
 \end{center}
-\caption{\label{figXP3} Acoustical Display (AD) \gregoire{fill the dots ;)}}
+\caption{\label{figXP3} Acoustical Display (AD)}
 \end{figure}
 
 \begin{figure}[t!]
@@ -287,16 +287,16 @@ Using the $IQR$ method, 5 subjects are detected as outliers and removed from the
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[scale=0.4]{gfx/analyse1} 
+\includegraphics[scale=0.4]{gfx/analyse1.eps} 
 \end{center}
-\caption{\label{fig1} Average and standard deviation for (a) the total search durations, (b) the total search durations and (c) the total search durations}
+\caption{\label{fig1} Average and standard deviation for (a) the total search durations, (b) the number of heard sounds and (c) the number of unique heard sounds}
 \end{figure}  
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[scale=0.4]{gfx/analyse2} 
+\includegraphics[scale=0.4]{gfx/analyse2.eps} 
 \end{center}
-\caption{\label{fig2} Medians of (top) the numbers of heard sounds at each target sound search, (middle) the numbers of heard sounds without duplication (WD) at each target sound search, (bottom) the relative durations at each target sound search \gregoire{polynomial beautiful regression} }
+\caption{\label{fig2} evolution of (a) the average search durations, (b) the average numbers of heard sounds, and (c) average the numbers of unique heard sounds at each target sound search. Lines are linear regression.}
 \end{figure}
 
 
@@ -316,7 +316,7 @@ The averages and standard deviations for the three metrics are presented on Figu
 
 Similar results are found for the numbers of heard sounds Figure~\ref{fig1}~(b). FSD significantly outperforms the other interfaces (FSD-PSD: $p=0.02$; FSD-ASD: $p<0.01$), whereas PSD and AD show similar outcomes (PSD-AD: $p=0.42$).
 
-Figure~\ref{fig1}~(c) shows the results for the number of unique heard sounds. This time the results of AD are significantly lower than those of both PD and FD (AD-PD: $p<0.01$; AD-FD: $p<0.01$).  For AD, 75\% of the subjects heard more than 138 sounds, and 25\% heard 148 sounds, that is almost the entire database. Considering PD, 75\% of subjects heard  less than 133 sounds, against 144 for FD. This time PD and FP seem to perform equally (PD-FD: $p=0.58$)
+Figure~\ref{fig1}~(c) shows the results for the number of unique heard sounds. This time the results of AD are significantly lower than those of both PD and FD (AD-PD: $p<0.01$; AD-FD: $p<0.01$).  For AD, 75\% of the subjects heard more than 140 sounds, and 25\% heard at least 148 sounds, that is almost the entire database. Considering PSD, 75\% of subjects heard  less than 134 sounds, against 143 for FSD. This time PSD and FSD seem to perform equally (PD-FD: $p=0.58$)
 
 According to those results, a hierarchical organization of the dataset based on semantic values (PSD and FSD) allows the users to retrieve the 13 target sounds 1) more efficiently, and 2) by listening to a smaller amount of sounds than an organization based on acoustic descriptors (AD). However, those two effects are significantly compromised when users have to parse the entire hierarchy to reach the first target sound, as in the PSD display. It seems that enforcing an explicit exploration of the hierarchy disturbs or confuses the user instead of allowing him to learn the semantically motivated spatial organization of the classes. 
 
