@@ -6,7 +6,7 @@
 \jvol{1}
 \jnum{1}
 
-\usepackage{color}
+\usepackage{color,url}
 \newcommand{\gregoire}[1]{\textcolor{red}{Gregoire : #1}}
 \newcommand{\mathias}[1]{\textcolor{green}{Mathias : #1}}
 \newcommand{\ml}[2][]{\textcolor{blue}{#1 #2}}
@@ -107,7 +107,7 @@
 \maketitle
 
 \begin{abstract}
-In this paper, we study the relevance of a semantic organization of sounds for easing the browsing of a sound database. For such task, the semantic organization is traditionally hold thanks to a keyword selection process. However, various issues of written language like word polysemy, ambiguities translation issues may bias the browsing process.
+~In this paper, we study the relevance of a semantic organization of sounds for easing the browsing of a sound database. For such task, the semantic organization is traditionally hold thanks to a keyword selection process. However, various issues of written language like word polysemy, ambiguities translation issues may bias the browsing process.
 
 We consider here two display of sounds that are organized by considering underlying semantic information that draws a hierarchy. For the sake of comparison, we also consider a display whose organization of sound in the plane is based on acoustic cues. Those three displays are evaluated in terms of search speed in a crowd sourcing experiment. Results 
 \end{abstract}
@@ -153,16 +153,6 @@ Though, such acoustical models are inherently subject to observation noise and b
 
 \section{Dataset} \label{dataset}
 
-The interface framework requires a pre-organization of the sound dataset it has to display. This organization is based on semantic considerations. A sound is characterized by a tag describing the source of the sound (\textit{man-yelling}, \textit{car-passing}). Sounds are then grouped into classes according to their tags (\textit{car} $>$ \textit{car-passing}; car $>$ \textit{car-starting}). Those classes are in turn  packed into classes until high level classes describing broad concepts are reached (\textit{traffic} $>$ \textit{car} $>$ \textit{car-passing}). The sound dataset is organized into a hierarchical structure of semantic classes as described in Figure~\ref{figdataset}. The different levels of this hierarchy are called semantic levels. Strictly speaking, the sound samples of the dataset are the leaf semantic levels. All the other classes are represented by a \textit{prototype sound} that best characterizes the sounds belonging to the class. 
-
-That description implies that there are as many leaf classes as sounds in the dataset, which would be unrealistic for large datasets. We therefore propose, in that case, to adapt the organization by considering the leaf classes as \textit{collections} of semantically similar sound samples. Thus, two sounds of \textit{male-yelling} would be grouped into a  single leaf class with the tag \textit{male-yelling}. The leaf class would then also have a \textit{prototype sound} being the most representative item of the different \textit{male-yelling} sounds belonging to the leaf class.
-
-In order for the semantic hierarchical structure to be perceptually valid, the \textit{tags} describing the classes  were chosen from the names of sound categories found by studies addressing environmental auditory scenes perception \cite{niessen2010categories, brown2011towards, dubois2006cognitive}. In cognitive psychology, sound categories may be regarded as intermediaries between collective sound representations and individual sensory experiences \cite{dubois2006cognitive}. It is our belief that using such category names to build the hierarchical structure makes the latter perceptually motivated, and thus meaningful for the users.
-
-
-%We choose to represent each sound leaf class of our sound data set with a circle. Circles are dispatched in a 2D space and packed together according to the hierarchical structure of the sound set (see figure \ref{SSF}). The class is identified by listening to an acoustic prototype chosen by the authors for its representativeness. Clicking on a circle fires this audio prototype.
-
-\section{Displays} \label{display}
 
 \begin{figure}[t]
 \begin{center}
@@ -171,20 +161,6 @@ In order for the semantic hierarchical structure to be perceptually valid, the \
 \caption{\label{figdataset} Semantic hierarchical structure of the dataset of urban environmental sounds}
 \end{figure}
 
-\begin{figure}[t!]
-\begin{center}
-\includegraphics[scale=0.30]{gfx/XP2clean.pdf} 
-\end{center}
-\caption{\label{figXP2} Full Display (FD) with a non visible hierarchical organization of semantic classes }
-\end{figure}
-
-\begin{figure*}[t]
-\begin{center}
-\includegraphics[scale=0.4]{gfx/XP1clean2.pdf} 
-\end{center}
-\caption{\label{figXP1} Progressive Display (PD) with a  visible hierarchical organization of semantic classes: (a) initial folded version; (b) partly folded version; (c) unfolded version}
-\end{figure*}
-
 \begin{figure}[t]
 \begin{center}
 \includegraphics[scale=0.24]{gfx/SSF.pdf} 
@@ -192,58 +168,73 @@ In order for the semantic hierarchical structure to be perceptually valid, the \
 \caption{\label{figSSF} Spatial configuration of the Progressive Display (PD) based on the semantic hierarchical structure of the dataset}
 \end{figure}
 
-In this section, two listening oriented displays, called respectively Progressive Display (PD) and Full Display (FD) are presented. Both interfaces 1) allow users to explore a sound dataset without any written textual help and 2) base their display upon the hierarchical structure of the dataset. The two interfaces have been designed in order to see whether a progressive top-down display of the hierarchical structure helps the user explore the dataset.
 
-As shown on Figures~\ref{figXP2} and \ref{figXP1}, both interfaces are based on the same principle of distributing in a 2D space the hierarchical structure of the  sound elements of the dataset. Each sound class is represented by a circle. Circles are packed together according to the hierarchical semantic organization of the dataset, as shown on Figure \ref{figSSF}. Thus, subclasses belonging to the same class are close to each others. Circle packing functions of the D3.js (Data-Driven Documents) javascript library \cite{2011-d3} are used to distribute the sound classes in the space. 
+The dataset considered in this study is composed of 149 urban environmental sound events. It has a semantic organization that is as follows: a sound is characterized by a tag describing the physical source of the sound (\textit{man-yelling}, \textit{car-passing}). Sounds are then hierarchically grouped into classes according to their tags (\textit{car} $>$ \textit{car-passing}; car $>$ \textit{car-starting}). Those classes are in turn  packed into classes until high level classes describing broader concepts are reached (\textit{traffic} $>$ \textit{car} $>$ \textit{car-passing}). The sound dataset is thus organized into a hierarchical structure of semantic classes as described in Figure~\ref{figdataset}. Strictly speaking, the sound samples of the dataset are the leaf semantic levels. All the other classes are represented by a \textit{prototype sound} that best characterizes the sounds belonging to the class. 
 
-The way in which a user visualizes the hierarchical organization varies with the interface:
-
-\begin{itemize}
-\item \textit{PD}: users have access to the intermediate semantic levels of the hierarchy. Upon first using PD, they observe circles representing the top classes of the semantic hierarchical structure of the dataset. When users click on a circle, they hear the sound prototype of the class and the subclasses are progressively revealed, represented by white circles contained in the circle that has just been clicked. The same action repeats itself until the user reaches the leaf classes of the hierarchy. The leaf classes are represented with small gray circles, indicating that there is no subclass to discover. Thus the PD has a constrained exploration system. When a user click on a circle, sub-circles are  automatically revealed to him in a gradual way. Each time a sub-circle is automatically revealed, its sound prototype is played. Users may stop the discovery process by clicking on an other circle. 
-\item \textit{FD}: users can directly visualize the whole hierarchy, down to the leaf classes. Those leaf classes are distributed  in the same manner as PD. In that sense, the spatial configuration of the unfolded version of PD, which may be obtained after discovering all the classes and subclasses, is similar to that of  FD, as shown on Figures~\ref{figXP2}, \ref{figXP1} and \ref{figSSF}.
-\end{itemize}
+In order for the semantic hierarchical structure to be perceptually valid, the \textit{tags} describing the classes  are chosen from sound categories presented in studies addressing environmental auditory scenes perception \cite{niessen2010categories, brown2011towards, dubois2006cognitive}. In cognitive psychology, sound categories may be regarded as intermediaries between collective sound representations and individual sensory experiences \cite{dubois2006cognitive}. It is our belief that using such category names to build the hierarchical structure makes the latter perceptually motivated, and can thus help the users for efficiently browsing the dataset.
 
 
-\section{Experiment} \label{test}
+%We choose to represent each sound leaf class of our sound data set with a circle. Circles are dispatched in a 2D space and packed together according to the hierarchical structure of the sound set (see figure \ref{SSF}). The class is identified by listening to an acoustic prototype chosen by the authors for its representativeness. Clicking on a circle fires this audio prototype.
 
-\subsection{Objective}
-During this test, three interfaces are compared:
-\begin{itemize}
-\item PD, which provides a visible hierarchical organization of semantic classes;
-\item FD, which provides a non-visible hierarchical organization of semantic classes;
-\item an Acoustic Display (AD) providing a 2D representation based on acoustic descriptors. In this case, the spatial configuration is computed by 1) describing the sounds with mel-frequency cepstrum coefficients (MFCCs) and 2) using  a non metric multidimensional scaling with Kruskal's normalized stress to compute sound positions in a 2D space. An example of AD can be seen on~Figure \ref{figXP3}.
-\end{itemize}
-
-By comparing PD and FD, the effect of a visible hierarchy on the user is investigated. The goal is to check if forcing the user to browse the high levels of the hierarchy helps him to understand and learn the spatial configuration and the organisation of the sound classes. By confronting PD and FD with AD, the relative efficiencies of semantic based and acoustic based spatial configurations are compared. 
+\section{Displays} \label{display}
 
 \begin{figure}[t]
 \begin{center}
 \includegraphics[scale=0.18]{gfx/XP3.pdf} 
 \end{center}
-\caption{\label{figXP3} The Acoustical Display (AD) computed using  a non metric multidimensional scaling on  MFCCs based acoustic descriptors}
+\caption{\label{figXP3} Acoustical Display (AD) \gregoire{fill the dots ;)}}
 \end{figure}
 
-\subsection{Experimental protocol}
-We choose to test and compare the three displays through a crowdsourcing experiment. Here is the link to access the experiment web page \footnote{http://217.70.189.118/soundthings/speedSoundFinding/}.
+\begin{figure}[t!]
+\begin{center}
+\includegraphics[scale=0.30]{gfx/XP2clean.pdf} 
+\end{center}
+\caption{\label{figXP2} Full Semantic Display (FSD): implicit hierarchical organization of semantic classes }
+\end{figure}
 
-Subjects are asked to successively retrieve 13 target sounds in a dataset of 149 urban environmental sound events. The target sounds are distributed such as there are at least two target sounds in each top-level class of the semantic hierarchical structure of the dataset. To minimize order effects, target sounds are randomly presented to each subject.
+\begin{figure*}[t]
+\begin{center}
+\includegraphics[scale=0.4]{gfx/XP1clean2.pdf} 
+\end{center}
+\caption{\label{figXP1} Progressive Semantic Display (PSD):  explicit hierarchical organization of semantic classes. (a) initial folded version; (b) partly folded version; (c) unfolded version}
+\end{figure*}
 
-To listen to a target sound, the subject has to click a \textit{Play target sound} button. Subject may replay the target sound  as many times as they like. A timer is started when the subject clicks on a circle for the first time.
 
-When the target sound is found, subject puts an end to its search by clicking on the \textit{Click if found} button. This action 1) stops the timer and 2) loads a new target sound. If the subject does not find the correct target sound, an error message appears, and the experiment continues.
 
-During the experiment, two indications are communicated to the subject:
+The aim of the displays presented in this section is to allow the user to efficiently browse the above presented dataset of sounds explore without any written textual help. For each display, a sound is graphically represented by a filled circle whose, once clicked, plays the actual sound. The spatial organization is specific to each display.
+
+As a reference, an Acoustic Display (AD) provides a spatial representation based on acoustic descriptors. For describing each sound, mel-frequency cepstrum coefficients (MFCCs) are computed with standard parameter settings (13 lowest quefrency coefficients are kept out of 40). The Euclidean distance between time averaged features is then computed between each sounds. A non metric multidimensional scaling with Kruskal's normalized stress is then considered to project the data into two dimensions \ref{figXP3} according to this distance.
+
+Two semantically oriented displays are then proposed, called respectively Semantic Display (FSD) and Progressive Semantic Display (PSD), respecively shown on Figures~\ref{figXP2} and \ref{figXP1}. Both display  consider the hierarchical structure of the dataset to organize sounds. Each sound class is represented by a filled circle. Circles are then packed together according to the hierarchical semantic organization of the dataset, as shown on Figure \ref{figSSF}. Thus, subclasses belonging to the same class are close to each others. Circle packing functions of the D3.js (Data-Driven Documents) javascript library \cite{2011-d3} are used to distribute the sound classes in the space. Depending on the display, the user can whether acces directly to each leaf class or has to go through intermediate levels of the hierarchy. More precisely: \\
 \begin{itemize}
-\item \textit{The research state}: "pause" if the subject is currently not looking for a target sound (at the beginning of the experiment, or between two target sounds);  "in progress"  if the subject is currently looking for a target sound.
+\item \textit{FSD}: users can directly visualize the whole hierarchy, down to the leaf classes. Those leaf classes are distributed  in the same manner as PD. In that sense, the spatial configuration of the unfolded version of PD, which may be obtained after discovering all the classes and subclasses, is similar to that of  FD, as shown on Figures~\ref{figXP2}, \ref{figXP1} and \ref{figSSF}.
+\item \textit{PSD}: users have access to the intermediate semantic levels of the hierarchy. Upon first using PD, they observe circles representing the top classes of the semantic hierarchical structure of the dataset. When users click on a circle, they hear the sound prototype of the class and the subclasses are progressively revealed, represented by white circles contained in the circle that has just been clicked. The same action repeats itself until the user reaches the leaf classes of the hierarchy. The leaf classes are represented with small gray circles, indicating that there is no subclass to discover. Thus the PD has a constrained exploration system. When a user click on a circle, sub-circles are  automatically revealed to him in a gradual way. Each time a sub-circle is automatically revealed, its sound prototype is played. Users may stop the discovery process by clicking on an other circle. 
+\end{itemize}
+
+The two interfaces have been designed in order to see whether a progressive top-down display of the hierarchical structure helps the user explore the dataset.
+
+\section{Experiment} \label{test}
+
+\subsection{Objective}
+
+During this experiment, the three displays are compared. By comparing AD and xSD (the two semantic displays), the goal is to evaluate the  relative efficiencies of semantic based and acoustic based spatial configurations. By comparing FSD and PSD, we study the impact of an enforced hierarchical exploration of the corpus by the user. The goal is to check if constraining the user to browse the high levels of the hierarchy helps him to grasp and memorize the spatial configuration and the organization of the sound classes. 
+
+\subsection{Experimental protocol}
+
+We evaluate and compare those three displays with a crowdsourcing web-based experiment \footnote{The test is available at \url{http://217.70.189.118/soundthings/speedSoundFinding}} for which we adopt a between subject approach, \textit{i.e.} a subject can only test one display. In this experiment, subjects are asked to successively retrieve 13 target sounds among the 149 of the whole dataset. The target sounds are selected such as there are at least two target sounds in each top-level class of the semantic hierarchical structure of the dataset. To reduce order effects, target sounds are randomly presented to each subject.
+
+First, the subject click a \textit{Play target sound} button to listen to the target sound. Then, the subject may replay the target sound  as many times as he likes. A timer starts when the subject clicks on a circle for the first time. When the target sound is found, subject puts an end to its search by clicking on the \textit{Click if found} button. This action 1) stops the timer and 2) loads a new target sound. If the subject does not find the correct target sound, an error message appears, and the experiment goes on with the same target sound.
+
+During the experiment, two visual cues are shown to the subject:
+\begin{itemize}
+\item \textit{The search state}: which can be "pause" if the subject is currently not looking for a target sound (at the beginning of the experiment, or between two target sounds) or  "in progress"  if the subject is currently looking for a target sound.
 \item \textit{Remaining target sounds}: the number of target sounds which remain to find.
 \end{itemize}
 
-The experiment ends when all the target sounds have been found.
-
-It is most important to note that PD do not pack up at each target sound search. When a circle is revealed, it remains visible during the whole experiment.
+The experiment ends when all the target sounds have been found. One shall notice that the PSD display is not reintialized at each change of the target sound. Thus, when a circle is unfolded, it remains visible during the whole experiment.
 
 \subsection{Data Collection}
-Three sets of data are collected during the experiment:
+Four types of data are collected during the experiment:
 \begin{itemize}
 \item the total duration of the entire experiment. It includes breaks between two target sound searches and it is called the \textit{absolute duration}.
 \item the duration of each search. The sum of the 13 search durations, which is the \textit{absolute duration} minus the break times between two target sound searches, is called the \textit{total search duration}.
@@ -252,12 +243,15 @@ Three sets of data are collected during the experiment:
 \end{itemize}
 
 \subsection{Apparatus}
-A crowd sourcing approach has been adopted. The experiment was designed to be supported by the  \textit{chrome-browser} web navigator. The link to the experiment has been sent to the subjects via three  mailing list being \textit{music-ir, auditory} and \textit{uuu-IRCAM} (internal IRCAM mailing list). Subjects were allowed to perform the experiment once, and on one interface only. Data were automatically collected server-side at the end of the experiment. Subjects were asked to use headphones. All the presented sounds were normalized to the same root mean square (RMS) level.
+
+A crowdsourcing approach is adopted. The experiment is designed to be performed using the  \textit{chrome} web browser. The link to the experiment has been sent to three  mailing lists, namely \textit{Music-Ir, Auditory} and an internal IRCAM mailing list. Subjects are only allowed to perform the experiment once, and on one interface only. Data were automatically collected server-side at the end of the experiment. Subjects were asked to use headphones. All sounds of the dataset are normalized to the same root mean square (RMS) level.
 
 \subsection{Participants}
+
 60 subjects have completed the experiment, 20 for each interface.
 
 \subsection{Statistical analysis}
+
 We use one-way ANOVA and two samples \textit{t} tests at the 5\% significance level to test for statistical significance. All statistical analysis are performed using native functions of the computing environment MATLAB.
 
 
@@ -280,71 +274,64 @@ outlier 5 (AD) &  x  & --- & --- & --- \\
 \end{center}
 \end{table} 
 
-Outlier detection is an important step of any crowdsourcing experiment as experimenters do not control the experimental environment in which the subjects perform the experiment \cite{komarov2013crowdsourcing}\cite{buchholz2011crowdsourcing}. A widely used method to detect outlier in  human-computer interaction studies is to consider as outlier an observation  which deviates of at least $\pm2$ standard deviation ($STD$) from the average \cite{komarov2013crowdsourcing}. As this method is not robust to the presence of isolated extreme observations (as it is often the case for crowdsourcing experiment), we follow the  method proposed by proposed by \cite{komarov2013crowdsourcing} and used the inter-quartile range ($IQR$). With this approach, an observation is considered to be an outlier if its value is more than $3*IQR$ higher than the third quartile or more than $3*IQR$ lesser than the first quartile. This methods is applied to the four following criterion :
+Outlier detection is an important step of any crowdsourcing experiment as experimenters do not control the environment in which the subjects perform the experiment \cite{komarov2013crowdsourcing,buchholz2011crowdsourcing}. A commonly used method to detect outliers in  human-computer interaction studies is to consider as outlier an observation  which deviates of at least $\pm2$ standard deviation ($STD$) from the average \cite{komarov2013crowdsourcing}. though, as this latter method is not robust to the presence of isolated extreme observations (as it is often the case for crowdsourcing experiment), we follow the  method proposed by proposed by \cite{komarov2013crowdsourcing} and used the inter-quartile range ($IQR$). With this approach, an observation is considered to be an outlier if its value is more than $3*IQR$ higher than the third quartile or more than $3*IQR$ lesser than the first quartile. This methods is applied in this study to the four following criteria :
 
 \begin{enumerate}
 \item the \textit{absolute duration}: to detect subjects who took abnormally long breaks between searches.
-\item the \textit{total search duration}: to detect subjects who took an abnormally long time to complete the experiment.
+\item the \textit{total search duration}: to detect subjects who spent an abnormally long time to complete the experiment.
 \item number of heard sounds: to detect subjects who had to hear an abnormally high number of sounds to complete the experiment.
 \item the maximum number of times a target sound had to be heard before being found: to detect subjects who had difficulty to recognize the target sounds.
 \end{enumerate}
 
-Using the $IQR$ method, 5 subjects are detected as outliers and removed from the analysis. 2 subjects used PD and 3 subjects AD. The tables~\ref{tab1} show what criterion are use to detect outliers. 3 subjects are detected by observing the \textit{absolute duration}. They spent respectively 50 minutes, 5 hours and 17.5 hours to complete the experiment. 1 subject is detected by observing the total search duration (46 minutes), and an other by observing the total number of heard sounds (1800 heard sounds, roughly 12 times the total size of the corpus). And lastly 2 subjects are detected by observing the maximum number of times they had to hear a target sounds before finding it (4 and 8 times).
-
-
-
+Using the $IQR$ method, 5 subjects are detected as outliers and removed from the analysis. 2 subjects used PD and 3 subjects AD. The tables~\ref{tab1} show the criteria used to detect the 5 outliers. 3 subjects are detected by observing the \textit{absolute duration}. They spent respectively 50 minutes, 5 hours and 17.5 hours to complete the experiment. 1 subject is detected by observing the total search duration (46 minutes), and an other by observing the total number of heard sounds (1800 heard sounds, roughly 12 times the total size of the corpus). And lastly 2 subjects are detected by observing the maximum number of times they had to hear a target sounds before finding it (4 and 8 times).
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[scale=0.4]{gfx/analyse1.eps} 
+\includegraphics[scale=0.4]{gfx/analyse1} 
 \end{center}
 \caption{\label{fig1} Average and standard deviation for (a) the total search durations, (b) the total search durations and (c) the total search durations}
 \end{figure}  
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[scale=0.4]{gfx/analyse2.eps} 
+\includegraphics[scale=0.4]{gfx/analyse2} 
 \end{center}
-\caption{\label{fig2} Medians of (top) the numbers of heard sounds at each target sound search, (middle) the numbers of heard sounds without duplication (WD) at each target sound search, (bottom) the relative durations at each target sound search }
+\caption{\label{fig2} Medians of (top) the numbers of heard sounds at each target sound search, (middle) the numbers of heard sounds without duplication (WD) at each target sound search, (bottom) the relative durations at each target sound search \gregoire{polynomial beautiful regression} }
 \end{figure}
 
 
-\subsection{Interface efficiencies}
+\subsection{Efficiency}
 
-To characterize the interface efficiencies, three set of collected data are assessed: 
+To characterize the relative efficiency of the three displays, three metrics are considered: 
 
 \begin{itemize}
 \item the \textit{total search duration}
-\item the number of heard sounds 
-\item the number of heard sounds without duplication. By "without duplication" we mean that, if a same sound prototype is heard 10 times during the 13 searches of the  experiment, it counts only for one. 
+\item the number of sounds heard \mathias{on met heard avant ou apres sounds ?} 
+\item the number of unique sounds heard. By "unique" we mean that, if a same sound is heard 10 times during the 13 searches of the  experiment, it counts only for one. 
 \end{itemize}
 
-The two first data help us qualify the notion of efficiency by considering the time and the number of clicks needed to achieve the task (ie. reach the target). The goal for those values is to be as low as possible. The third data allows us to measure the selectivity of the interfaces. A low number of heard sounds without duplication indicates that subjects understood the spatial organisation of the dataset, and use this knowledge to improve their searches. In contrary, a high number of heard sounds without duplication suggest that the subject did not understood the way circles are organized in space, and tends to play all the sounds at each search. The maximum number of heard sounds without duplication is the corpus size: 149 sounds.
+The first two metrics quantify the notion of efficiency by considering the time and the number of clicks needed to achieve the task, \textit{ie.} reach the target. The goal for those values is to be as low as possible. The third data allows us to measure the selectivity of the interfaces. A low number of unique heard sounds indicates that subjects understood the spatial organisation of the dataset, and use this knowledge to improve their searches. In contrary, a high number of heard sounds without duplication suggest that the subject did not understood the way circles are organized in space, and tends to play all the sounds at each search. The maximum number of unique heard sounds is the corpus size: 149 sounds.
 
-The type of interface have a significant effect on the the \textit{total search durations} ($F[2,52]=3.63; p=0.03$), the number of heard sounds ($F[2,52]=5.65; p<0.01$) and the number of heard sounds without duplication ($F[2,52]=8.65; p<0.01$). 
+The averages and standard deviations for the three metrics are presented on Figure \ref{fig1}. The type of display have a significant effect on the the \textit{total search duration} ($F[2,52]=3.63; p=0.03$), the number of heard sounds ($F[2,52]=5.65; p<0.01$) and the number of unique heard sounds ($F[2,52]=8.65; p<0.01$). Post hoc analysis on the total search time (Figure~\ref{fig1}~(a)) shows that FSD  perform better  than the other interfaces (FSD-PSD: $p=0.04$; FSD-AD: $p=0.02$), whereas PSD and AD seem to have similar results (PSD-AD: $p=0.88$).
 
-Figure~\ref{fig1}~(a) shows the average and standard deviations of the \textit{total search durations} for the three interfaces. FD seems to  perform better  than the other interfaces (FD-PD: $p=0.04$; FD-AD: $p=0.02$), whereas PD and AD seem to have similar results (PD-AD: $p=0.88$).
+Similar results are found for the numbers of heard sounds Figure~\ref{fig1}~(b). FSD significantly outperforms the other interfaces (FSD-PSD: $p=0.02$; FSD-ASD: $p<0.01$), whereas PSD and AD show similar outcomes (PSD-AD: $p=0.42$).
 
-We found similar results for the numbers of heard sounds (Figure~\ref{fig1}~(b)). FD significantly outperforms the other interfaces (FD-PD: $p=0.02$; FD-AD: $p<0.01$), whereas PD and AD show similar outcomes (PD-AD: $p=0.42$).
+Figure~\ref{fig1}~(c) shows the results for the number of unique heard sounds. This time the results of AD are significantly lower than those of both PD and FD (AD-PD: $p<0.01$; AD-FD: $p<0.01$).  For AD, 75\% of the subjects heard more than 138 sounds, and 25\% heard 148 sounds, that is almost the entire database. Considering PD, 75\% of subjects heard  less than 133 sounds, against 144 for FD. This time PD and FP seem to perform equally (PD-FD: $p=0.58$)
 
-Figure~\ref{fig1}~(c) shows the results for the number of heard sounds without duplication. This time the results of AD are significantly lower than those of both PD and FD (AD-PD: $p<0.01$; AD-FD: $p<0.01$).  For AD, 75\% of the subjects heard more than 138 sounds, and 25\% heard 148 sounds, that is almost the entire database. Considering PD, 75\% of subjects heard  less than 133 sounds, against 144 for FD. This time PD and FP seem to perform equally (PD-FD: $p=0.58$)
-
-According to those results, a hierarchical organization of the dataset based on semantic values (PD and FD) allows users to retrieve the 13 target sounds 1) quicker, and 2) by listening to a smaller amount of sounds than an organization based on acoustic descriptors (AD). But those two effects are significantly compromised when users have to parse the entire hierarchy to reach the first target sound, as it the case for PD. It seems that imposing a graphical representation of the hierarchy disturbs or confuses the user instead of allowing him to learn the spatial organization of the classes. 
+According to those results, a hierarchical organization of the dataset based on semantic values (PSD and FSD) allows the users to retrieve the 13 target sounds 1) more efficiently, and 2) by listening to a smaller amount of sounds than an organization based on acoustic descriptors (AD). However, those two effects are significantly compromised when users have to parse the entire hierarchy to reach the first target sound, as in the PSD display. It seems that enforcing an explicit exploration of the hierarchy disturbs or confuses the user instead of allowing him to learn the semantically motivated spatial organization of the classes. 
 
 
 \subsection{Learning phenomenon}
 
-We now study if and how users  progressively acquire knowledge about the spatial organization of the classes. To do that, variations of the data over the searches are assessed. Three sets of collected data are used:
+We now study if and how users  progressively acquire knowledge about the spatial organization of the classes. To do that, the evolution of the above described metrics with respect to the search indexes is considered. Three sets of collected data are used:
 
 \begin{itemize}
 \item the duration of each target sound search 
 \item the number of heard sounds for each target sound search 
-\item the number of heard sounds for each target sound search without duplication. 
+\item the number of unique heard sounds for each target sound search. 
 \end{itemize}
 
-Figure~\ref{fig2}~(a) shows the evolution of the average durations of each target sound search observed for PD, FD and AD. It is interesting to note that both for PD and FD, the maximum value is observed for the first search, whereas it is observed for the fourth search for AD. Moreover if the curve profiles of PD and FD  seem to progressively decrease and are very similar, the one of AD is much more irregular. Similar results are found observing the evolution of the average numbers of heard sounds with and without duplication (Figures~\ref{fig2}~(b) and (c)) 
-
-These results tend to indicate that PD and FD facilitate the learning of the spatial configuration, as the search durations and the numbers of heard sounds at each search decrease over time. Although curves for PD and FD have similar profiles, FD seem to better perform as users of FD where able to find the target sounds faster by clicking on fewer circles.
+Figure~\ref{fig2}~(a) shows the evolution of the average durations of each target sound search observed for AD, FSD and PSD. As shown by a linear regression of the data, there is an overall increase of efficiency with respect to the index of the search. For the duration and the number of heard sounds, the AD and PSD perform equivalently, whereas the FSD exhibit better performance. In the case of the number of unique heard sounds, the two semantic displays are equivalent. This latter result suggest that for both semantic displays, users have parsed the same range of the dataset. Although users of FSD have done so by listening to fewer sounds and more quickly. 
 
 \section{Conclusion}
 
@@ -353,6 +340,7 @@ The Full-Display (FD), that allows users to directly visualize the leaf classes 
 
 Two main conclusions may be derived from this experiment. First, a spatial configuration based on semantic features is more effective to retrieve target sounds than a spatial configuration based on acoustic features. Second, an imposed visualisation of the semantic hierarchical structure of the dataset does not help user to understand and learn the spatial configuration of the semantic class, but instead disturbs the navigation. 
 
+In the dataset considered in this study, there are as many leaf classes as sounds in the dataset, which would be unrealistic for large datasets. Though the organization can easily be adapted by considering the leaf classes as \textit{collections} of semantically similar sound samples. Thus, two sounds of \textit{male-yelling} would be grouped into a  single leaf class with the tag \textit{male-yelling}. The leaf class would then also have a \textit{prototype sound} being the most representative item of the different \textit{male-yelling} sounds belonging to the leaf class.
 
 %It has to be noted that the test datasets are relatively small in terms of leaf sound classes. It may be interesting to test the FD on a larger dataset. 
 %
