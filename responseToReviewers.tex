@@ -1,0 +1,84 @@
+\documentclass[10pt]{article}
+
+\title{Response to Reviewers: \\ AES-D-16-00016
+Semantic browsing of sound databases without keywords}
+
+\usepackage{color}
+\newcommand{\gl}[1]{\textcolor{red}{Gregoire : #1}}
+\newcommand{\nm}[1]{\textcolor{magenta}{Nicolas : #1}}
+\newcommand{\ml}[1]{\textcolor{blue}{ Mathieu : #1}}
+
+
+\begin{document}
+
+\maketitle
+
+We would like to thank the editor and the reviewers for their comments and suggestions. Following these comments, we made several changes to the article, which are summarized here. The next sections list our answers to each of the reviewer’s comments, with references to the revised manuscript where appropriate.
+
+\ml{TODO: put analysis data online, and website}
+
+\section{Responses to Reviewer 1}
+
+
+\begin{enumerate}
+
+\item \emph{}
+
+\end{enumerate}
+
+\section{Responses to Reviewer 2}
+
+
+\begin{enumerate}
+
+\item \emph{}
+
+\end{enumerate}
+
+\section{Full text}
+
+Reviewer 1: This paper proposes a new method for navigating environmental sound libraries using a constrained and unconstrained display that visualises semantic organisation of sounds. The authors build and evaluate two interfaces for navigation and compare them to a baseline method in which sounds are arranged in a 2D space using on MFCC based distances mapped to two dimensions using multi dimensional scaling. The semantic grouping in contrast are based on a hierarchical structure of conceptual/cognitive relatedness that is manually annotated. The assessment looks at search efficiency in absolute terms using information collected during user studies, including search time and the number of sounds a user had to listen to before reaching a target sound. The evaluation also looks at how efficiency changes over time as users become more familiar with the interface.
+
+The idea is relatively novel and clearly presented, the collected data is valuable and subjected to appropriate statistical validation. There are clear conclusions drawn from this. For these reasons I recommend the paper to be published after minor editorial changes and clarifications. 
+
+The only question regarding the technical content that wasn't entirely clear to me is whether the sounds heard counter was reset for each search? That is, wehther the total and unique heard sounds are related to the whole experiment or an average value per target? How many target sounds were assessed by each subject? Was this controlled by the study or was the study simply time limited? Perhaps in the post-hoc analyses it would be useful to know if FSD produces significant results in pair-wise tests with Bonferroni correction (since this is, albeit simple, still a multiple comparison test). 
+
+Typos:
+On page 5, Section 5.2  "...the three metrics are presented on Figure 6. " => should be in Figure 6.
+
+
+
+
+Reviewer 2: Any additional comments you write here will be available to the author. You may also upload an annotated manuscript and/or detailed comments file.
+
+The authors describe some user experiments investigating the use of semantic organization for visual browsing of sound databases without keywords. 
+The main idea is to display the hierarchical organization of the data to facilitate browsing. Overall the paper is well written and easy to understand. The 
+experimental methodology is good and the results support the conclusions with some caveats that I mention below. The bibliography is good but 
+could be improved with some more recent references in music browsing. I think it will make a good contribution to the special issue especially 
+if one or more of the following suggestions are addressed by the authors - they are not essential but I think they would make the paper 
+much stronger and help it have more impact. Currently it reads like a strong conference paper but a weak journal article. 
+My suggestions are: 
+
+1) The title is misleading i.e sound databases is too general and could encompass music, speech such oral histories, sound effects, bio-acoustic signals etc. 
+The assumption that the findings generalize to other types of sound is too far stretched as for example music and urban sound are extremely different 
+in how they are perceived organized by listeners. I would prefer a more honest title such as: 
+
+Semantic browsing of urban envrionment sounds without keywords 
+
+If the author replicate the same experiment for example using a music collection or a collection of bird songs and the findings were consistent 
+this would justify the old title (and make the paper much stronger) 
+
+2) The references are relatively old. There have been several newer efforts to develop browsing interfaces especially in the music domain. 
+For example the Musicream, Musicrainbow and Musicsun interfaces. 
+Knees, Peter, et al. "An innovative three-dimensional user interface for exploring music collections enriched." Proceedings of the 14th annual ACM international conference on Multimedia. ACM, 2006.
+Lillie, Anita Shen. MusicBox: Navigating the space of your music. Diss. Massachusetts Institute of Technology, 2008.
+
+3) The uses of Kruskal's normalized stress is interesting but raises the concern that the hierarchical organization improvement might be specific to this approach. It would have been 
+really good to have a few other ways to map the audio features to a spatial display (the classic PCA for example or SOM) and then compare the different interfaces. I realize that 
+this would require more extensive experiments but it would make the paper much stronger. 
+
+4) Finally even though I agree with some of the arguments for avoiding keywords as a way of searching they can be used to help the user understand the space. Even some thing 
+as simple as showing the word associated with a category when navigating would probably help. This would be an easy configuration to test and I am surprised the authors 
+have done so. I suspect that the speed and efficiency would improve.
+
+\end{document}
