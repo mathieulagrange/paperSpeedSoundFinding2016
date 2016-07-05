@@ -109,12 +109,6 @@ The paper is organized as follows: in Section~\ref{previous}, previous work on t
 
 \section{Previous work} \label{previous}
 
-Most of the research effort in the sound design and Music Information Retrieval (MIR) communities is focused on acoustical based indexing and browsing \cite{tzanetakis2003musescape, streich2008music,goto2005musicream,pampalk2007musicsun}. Typically, the items (sound effects or pieces of music) are modeled by processing the digital audio waveform through some signal processing pipeline in order to get a compact description of each item
-\cite{coleman2007mused}, with sometimes additional textual features. Then, statistical projections or embedding techniques, like Principal Components Analysis (PCA) \cite{MusicBox},  Multi Dimensional Scaling (MDS) \cite{schwarz2009sound,Cano2002}, Self Organizing Maps (SOM) \cite{pampalk2004exploring,pampalk2006musicrainbow,knees2006innovative} and the like are used to project the items in a two or three dimensional space while preserving as much as possible the distances among them. One of the advantages of such an approach is its ability to scale to very large databases \cite{schwarz2009scalability} as it does not need any kind of manual annotation and allows the user to search by similarity efficiently according to acoustical properties.
-
-However, acoustical models are inherently subject to observation noise and biases. Selecting the most relevant features to achieve the correct projection of the data may only be performed by an expert user, taking into account the specifities of the data. If done \textit{a priori} by an expert or by some above cited dimensionality reduction technique, the induced bias can strongly limit the users' ability to access what they search for. In that respect, semantic tags, if available, have the advantage of implicitly structuring the similarity space, thus possibly easing the browsing process even if the actual tags are not -- as in this study -- explicitly exposed to the user.
-
-\section{Datasets} \label{dataset}
 
 
 \begin{figure}[t]
@@ -124,12 +118,14 @@ However, acoustical models are inherently subject to observation noise and biase
 \caption{\label{figdataset} Semantic hierarchical structure of the dataset of urban environmental sounds.}
 \end{figure}
 
-\begin{figure}[t]
-\begin{center}
-\includegraphics[scale=0.24]{gfx/SSF.pdf} 
-\end{center}
-\caption{\label{figSSF} Semantic displays are  based on the semantic hierarchical structure of the dataset.}
-\end{figure}
+
+Most of the research effort in the sound design and Music Information Retrieval (MIR) communities is focused on acoustical based indexing and browsing \cite{tzanetakis2003musescape, streich2008music,goto2005musicream,pampalk2007musicsun}. Typically, the items (sound effects or pieces of music) are modeled by processing the digital audio waveform through some signal processing pipeline in order to get a compact description of each item
+\cite{coleman2007mused}, with sometimes additional textual features. Then, statistical projections or embedding techniques, like Principal Components Analysis (PCA) \cite{MusicBox},  Multi Dimensional Scaling (MDS) \cite{schwarz2009sound,Cano2002}, Self Organizing Maps (SOM) \cite{pampalk2004exploring,pampalk2006musicrainbow,knees2006innovative} and the like are used to project the items in a two or three dimensional space while preserving as much as possible the distances among them. One of the advantages of such an approach is its ability to scale to very large databases \cite{schwarz2009scalability} as it does not need any kind of manual annotation and allows the user to search by similarity efficiently according to acoustical properties.
+
+However, acoustical models are inherently subject to observation noise and biases. Selecting the most relevant features to achieve the correct projection of the data may only be performed by an expert user, taking into account the specifities of the data. If done \textit{a priori} by an expert or by some above cited dimensionality reduction technique, the induced bias can strongly limit the users' ability to access what they search for. In that respect, semantic tags, if available, have the advantage of implicitly structuring the similarity space, thus possibly easing the browsing process even if the actual tags are not -- as in this study -- explicitly exposed to the user.
+
+\section{Datasets} \label{dataset}
+
 
 
 The datasets considered in this study are respectively composed of 149 urban environmental sound events and 137 sounds produced by musical instruments. 
@@ -140,22 +136,32 @@ In order for the semantic hierarchical structure to be perceptually valid, the \
 
 Similarly, the second corpus also has a semantic organization: high and mid level classes categorize musical instruments according to the means by which sound is produced, while leaf level classes are related to specific instruments (\textit{string} $>$ \textit{plucked-string} $>$ \textit{viola}; \textit{brass} $>$ \textit{ordinario} $>$ \textit{trumpet}).
 
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[scale=0.24]{gfx/SSF.pdf} 
+\end{center}
+\caption{\label{figSSF} Semantic displays are  based on the semantic hierarchical structure of the dataset.}
+\end{figure}
+
 %We choose to represent each sound leaf class of our sound data set with a circle. Circles are dispatched in a 2D space and packed together according to the hierarchical structure of the sound set (see figure \ref{SSF}). The class is identified by listening to an acoustic prototype chosen by the authors for its representativeness. Clicking on a circle fires this audio prototype.
 
 \section{Displays} \label{display}
 
 The aim of the displays described in this section is to allow the user to efficiently browse the sound datasets without any written textual help. In all displays, each sound is graphically represented by a filled circle which, once clicked, plays the actual sound. The spatial organization of circles is specific to each display.
 
-As a reference, an Acoustic Display (AD) provides a spatial representation based on acoustic descriptors. Each sound is described by time-averaged Mel-Frequency Cepstrum Coefficients (MFCCs) computed with standard parameter settings (13 lowest quefrency coefficients are kept out of 40). The Euclidean distance between time averaged features is then computed for each sound pair. A non metric multidimensional scaling (MDS) with Kruskal's normalized stress \cite{kruskal1964multidimensional} is then employed to project the data into two dimensions according to this distance, as shown on Figures~\ref{figXP3urban} and~\ref{figXP3music}. The latter exhibit a clear distinction between percussive (left) and sustained sounds (right).
+As a reference, an Acoustic Display (AD) provides a spatial representation based on acoustic descriptors. Each sound is described by time-averaged Mel-Frequency Cepstrum Coefficients (MFCCs) computed with standard parameter settings (13 lowest quefrency coefficients are kept out of 40). The Euclidean distance between time averaged features is then computed for each sound pair. A non metric multidimensional scaling (MDS) with Kruskal's normalized stress \cite{kruskal1964multidimensional} is then employed to project the data into two dimensions according to this distance, as shown on Figure~\ref{figXP3music}. The latter exhibit a clear distinction between percussive (left) and sustained sounds (right).
+
+% s~\ref{figXP3urban} and
 
 Among the several alternatives that exists, MFCCs features are chosen as they are widely used in the audio processing community. MDS is selected for 2D projection as it has a lower sensitivity to outliers than the PCA and do not relyi on any parameter optimization, unlike the SOM approach. 
 
-\begin{figure}[t]
-\begin{center}
-\includegraphics[width=\columnwidth]{gfx/urban_mds.png} 
-\end{center}
-\caption{\label{figXP3urban} Acoustical Display for the urban sound dataset (AD). Colors and legend are removed during the experiment.}
-\end{figure}
+%\begin{figure}[t]
+%\begin{center}
+%\includegraphics[width=\columnwidth]{gfx/urban_mds.png} 
+%\end{center}
+%\caption{\label{figXP3urban} Acoustical Display for the urban sound dataset (AD). Colors and legend are removed during the experiment.}
+%\end{figure}
 
 \begin{figure}[t]
 \begin{center}
@@ -345,6 +351,40 @@ Research project partly funded by ANR-11-JS03-005-01.
 
 \bibliographystyle{abbrv}
 \bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+
+
+\biography{\textbf{Gr\'egoire Lafay}}{gfx/lafay.jpg}{IRCCYN, Ecole Centrale de Nantes, France}
+
+\biography{\textbf{Nicolas Misdariis}}{gfx/lafay.jpg}{IRCAM, France}
+
+\biography{\textbf{Mathieu Lagrange}}{gfx/lagrange.jpg}{IRCCYN, Ecole Centrale de Nantes, France}
+
+\biography{\textbf{Mathias Rossignol}}{gfx/rossignol.jpg}{IRCAM, France}
+
+
+
+%\begin{biography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{gfx/lafay}}]{Gr\'egoire Lafay} was born in Paris, France, in 1990. He received in 2011 the B.S. degree in Acoustic from the University Pierre and Marie Curie (UPMC), Paris, France, and the B.S. degree in Musicology from the Sorbonne University, Paris, France. He received his M.S. degree in acoustics, signal processing and musical informatics (ATIAM) from the University Pierre and Marie Curie and the IRCAM laboratory, Paris, France, in 2013. Since 2013, he is a Ph.D student at Irccyn, a French laboratory dedicated to cybernetics. His current research interests include acoustic scene similarity and classification, as well as acoustic scene perception. 
+%\end{biography}
+%
+%\begin{biography}[{\includegraphics[width=1.25in,height=1.25in,clip,keepaspectratio]{gfx/lagrange}}]{Mathieu Lagrange} is a CNRS research scientist at Irccyn, a French laboratory dedicated to cybernetics. He obtained his PhD in computer science at the University of Bordeaux in 2004, and visited several institutions, in Canada (University of Victoria, McGill University) and in France (Orange Labs, Telecom ParisTech, Ircam). His research focuses on machine listening algorithms applied to the analysis of musical and environmental audio.
+%\end{biography}
+%
+%\begin{biography}[{\includegraphics[width=1.05in,height=1.5in,clip,keepaspectratio]{gfx/rossignol}}]{Mathias Rossignol} obtained his PhD from Rennes University (France) in 2005, with a specialty in Natural Language Processing. He then focused his research on speech analysis and recognition at the International Research Center MICA (Hanoi, Vietnam), before moving on to Auditory Scene Analysis at IRCAM (Institute for Acoustic / Music Research and Coordination, Paris, France).
+%\end{biography}
+%
+%\begin{biography}[{\includegraphics[width=0.9in,height=1.4in,clip,keepaspectratio]{gfx/lagrange.png}}]
+%{Emmanouil Benetos} (S'09-M'12) received the B.Sc. and M.Sc. degrees in 
+%informatics from the Aristotle University of Thessaloniki, Greece, in 
+%2005 and 2007, respectively, and the Ph.D. degree in electronic 
+%engineering from Queen Mary University of London, U.K., in 2012. From 
+%2013 to 2015, he was a University Research Fellow with the Department of 
+%Computer Science, City University London, London, U.K. He is currently a Royal 
+%Academy of Engineering Research Fellow with the Centre for Digital Music, 
+%Queen Mary University of London, U.K. His research focuses on signal 
+%processing and machine learning for music and audio analysis, as well as 
+%applications to music information retrieval, acoustic scene analysis, 
+%and computational musicology.
+%\end{biography}
 
 %In particular, much consideration has been given in order to avoid any semantic bias. Indeed any selection process based on keyword searching would have influenced the subject choices, and makes impossible or inadvisable to run any kind of identification tasks. 
 %
