@@ -6,7 +6,8 @@
 \jvol{1}
 \jnum{1}
 
-\usepackage{color,url}
+\usepackage{color,hyperref,url}
+\usepackage[numbers]{natbib}
 \newcommand{\gl}[1]{\textcolor{red}{gl: #1}}
 \newcommand{\mr}[1]{\textcolor{green}{Mathias : #1}}
 \newcommand{\ml}[2][]{\textcolor{blue}{#1 #2}}
@@ -71,7 +72,7 @@
 %\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
 %email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
 %(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
-\date{26 December 2014 }
+\date{July 8 2016 }
 % Just remember to make sure that the TOTAL number of authors
 % is the number that will appear on the first page PLUS the
 % number that will appear in the \additionalauthors section.
@@ -113,7 +114,7 @@ The paper is organized as follows: in Section~\ref{previous}, previous work on t
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[scale=0.24]{gfx/dataset.pdf} 
+\includegraphics[scale=0.24]{dataset.pdf} 
 \end{center}
 \caption{\label{figdataset} Semantic hierarchical structure of the dataset of urban environmental sounds.}
 \end{figure}
@@ -139,7 +140,7 @@ Similarly, the second corpus also has a semantic organization: high and mid leve
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[scale=0.24]{gfx/SSF.pdf} 
+\includegraphics[scale=0.24]{SSF_bw.pdf} 
 \end{center}
 \caption{\label{figSSF} Semantic displays are  based on the semantic hierarchical structure of the dataset.}
 \end{figure}
@@ -158,14 +159,14 @@ Among the several alternatives that exists, MFCCs features are chosen as they ar
 
 %\begin{figure}[t]
 %\begin{center}
-%\includegraphics[width=\columnwidth]{gfx/urban_mds.png} 
+%\includegraphics[width=\columnwidth]{urban_mds.png} 
 %\end{center}
 %\caption{\label{figXP3urban} Acoustical Display for the urban sound dataset (AD). Colors and legend are removed during the experiment.}
 %\end{figure}
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=\columnwidth]{gfx/music_mds.png} 
+\includegraphics[width=\columnwidth]{music_mds_bw.png} 
 \end{center}
 \caption{\label{figXP3music} Acoustical Display for the instrument sound dataset (AD). Colors and legend are removed during the experiment.}
 \end{figure}
@@ -244,24 +245,24 @@ Using the $IQR$ method, 5 subjects are detected as outliers for the urban experi
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=\columnwidth]{gfx/urbanMusic1.eps} 
+\includegraphics[width=\columnwidth]{urbanMusic1_bw} 
 \end{center}
 \caption{\label{urbanMusic} Average and standard deviation for (a,d) the total search durations, (b,e) the number of heard sounds and (c,f) the number of unique heard sounds; considering respectively the urban dataset (a,b,c) and the instrument dataset (d,e,f).}
 \end{figure}  
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=\columnwidth]{gfx/analyse_urban2.eps} 
+\includegraphics[width=\columnwidth]{analyse_urban_bw2.pdf} 
 \end{center}
-\caption{\label{fig2urban} Evolution of (a) the average search durations, (b) the average numbers of heard sounds, and (c) the average numbers of unique heard sounds at each target sound search, considering the urban dataset. Lines are linear regression fits.}
+\caption{\label{fig2urban} Evolution of (a) the average search durations, (b) the average numbers of heard sounds, and (c) the average numbers of unique heard sounds at each target sound search, considering the urban dataset. Lines are linear regression fits, represented as dashed line for AD, dash-dotted line for FSD and solid line for PSD.}
 \end{figure}
 
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=\columnwidth]{gfx/analyse_music2.eps} 
+\includegraphics[width=\columnwidth]{analyse_music_bw2.pdf} 
 \end{center}
-\caption{\label{fig2Music} Evolution of (a) the average search durations, (b) the average numbers of heard sounds, and (c) the average numbers of unique heard sounds at each target sound search, considering the instrument dataset. Lines are linear regression fits.}
+\caption{\label{fig2Music} Evolution of (a) the average search durations, (b) the average numbers of heard sounds, and (c) the average numbers of unique heard sounds at each target sound search, considering the instrument dataset. Lines are linear regression fits, represented as dashed line for AD, dash-dotted line for FSD and solid line for PSD.}
 \end{figure}
 
 \subsection{Efficiency}
@@ -349,30 +350,30 @@ Research project partly funded by ANR-11-JS03-005-01.
 
 
 
-\bibliographystyle{abbrv}
+\bibliographystyle{plainurl}
 \bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
 
 
-\biography{\textbf{Gr\'egoire Lafay}}{gfx/lafay.jpg}{IRCCYN, Ecole Centrale de Nantes, France}
+\biography{\textbf{Gr\'egoire Lafay}}{lafay.jpg}{IRCCYN, Ecole Centrale de Nantes, France}
 
-\biography{\textbf{Nicolas Misdariis}}{gfx/lafay.jpg}{STMS Ircam-CNRS-UPMC, France}
+\biography{\textbf{Nicolas Misdariis}}{misdariis.jpg}{STMS Ircam-CNRS-UPMC, France}
 
-\biography{\textbf{Mathieu Lagrange}}{gfx/lagrange.jpg}{IRCCYN, Ecole Centrale de Nantes, France}
+\biography{\textbf{Mathieu Lagrange}}{lagrange.jpg}{IRCCYN, Ecole Centrale de Nantes, France}
 
-\biography{\textbf{Mathias Rossignol}}{gfx/rossignol.jpg}{STMS Ircam-CNRS-UPMC, France}
+\biography{\textbf{Mathias Rossignol}}{rossignol.jpg}{STMS Ircam-CNRS-UPMC, France}
 
 
 
-%\begin{biography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{gfx/lafay}}]{Gr\'egoire Lafay} was born in Paris, France, in 1990. He received in 2011 the B.S. degree in Acoustic from the University Pierre and Marie Curie (UPMC), Paris, France, and the B.S. degree in Musicology from the Sorbonne University, Paris, France. He received his M.S. degree in acoustics, signal processing and musical informatics (ATIAM) from the University Pierre and Marie Curie and the IRCAM laboratory, Paris, France, in 2013. Since 2013, he is a Ph.D student at Irccyn, a French laboratory dedicated to cybernetics. His current research interests include acoustic scene similarity and classification, as well as acoustic scene perception. 
+%\begin{biography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{lafay}}]{Gr\'egoire Lafay} was born in Paris, France, in 1990. He received in 2011 the B.S. degree in Acoustic from the University Pierre and Marie Curie (UPMC), Paris, France, and the B.S. degree in Musicology from the Sorbonne University, Paris, France. He received his M.S. degree in acoustics, signal processing and musical informatics (ATIAM) from the University Pierre and Marie Curie and the IRCAM laboratory, Paris, France, in 2013. Since 2013, he is a Ph.D student at Irccyn, a French laboratory dedicated to cybernetics. His current research interests include acoustic scene similarity and classification, as well as acoustic scene perception. 
 %\end{biography}
 %
-%\begin{biography}[{\includegraphics[width=1.25in,height=1.25in,clip,keepaspectratio]{gfx/lagrange}}]{Mathieu Lagrange} is a CNRS research scientist at Irccyn, a French laboratory dedicated to cybernetics. He obtained his PhD in computer science at the University of Bordeaux in 2004, and visited several institutions, in Canada (University of Victoria, McGill University) and in France (Orange Labs, Telecom ParisTech, Ircam). His research focuses on machine listening algorithms applied to the analysis of musical and environmental audio.
+%\begin{biography}[{\includegraphics[width=1.25in,height=1.25in,clip,keepaspectratio]{lagrange}}]{Mathieu Lagrange} is a CNRS research scientist at Irccyn, a French laboratory dedicated to cybernetics. He obtained his PhD in computer science at the University of Bordeaux in 2004, and visited several institutions, in Canada (University of Victoria, McGill University) and in France (Orange Labs, Telecom ParisTech, Ircam). His research focuses on machine listening algorithms applied to the analysis of musical and environmental audio.
 %\end{biography}
 %
-%\begin{biography}[{\includegraphics[width=1.05in,height=1.5in,clip,keepaspectratio]{gfx/rossignol}}]{Mathias Rossignol} obtained his PhD from Rennes University (France) in 2005, with a specialty in Natural Language Processing. He then focused his research on speech analysis and recognition at the International Research Center MICA (Hanoi, Vietnam), before moving on to Auditory Scene Analysis at IRCAM (Institute for Acoustic / Music Research and Coordination, Paris, France).
+%\begin{biography}[{\includegraphics[width=1.05in,height=1.5in,clip,keepaspectratio]{rossignol}}]{Mathias Rossignol} obtained his PhD from Rennes University (France) in 2005, with a specialty in Natural Language Processing. He then focused his research on speech analysis and recognition at the International Research Center MICA (Hanoi, Vietnam), before moving on to Auditory Scene Analysis at IRCAM (Institute for Acoustic / Music Research and Coordination, Paris, France).
 %\end{biography}
 %
-%\begin{biography}[{\includegraphics[width=0.9in,height=1.4in,clip,keepaspectratio]{gfx/lagrange.png}}]
+%\begin{biography}[{\includegraphics[width=0.9in,height=1.4in,clip,keepaspectratio]{lagrange.png}}]
 %{Emmanouil Benetos} (S'09-M'12) received the B.Sc. and M.Sc. degrees in 
 %informatics from the Aristotle University of Thessaloniki, Greece, in 
 %2005 and 2007, respectively, and the Ph.D. degree in electronic 
