@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<TITLE>Speed Sound Finding</TITLE>
+<style>
+span {
+ border:3px double black;
+ padding:5px;
+ }
+ 
+ h1,h2,h3,h4{
+	font-family:"helvetica";
+	}
+ </style>
+<script type="text/javascript" src="js/src/jquery.min.js"></script>
+<script type="text/javascript" src="js/XP.js"></script>
+
+
+<body >
+
+
+	<div ALIGN="CENTER" name='coucou' >
+		<h1>Speed sound finding</h1>
+		<h1>Performance test of a web audio interface for sound data mining</h1>
+		<h3>Please read the <a href="instructions.html" style = "font-size:20px" target="_blank">instructions</a> carefully before starting the experiment</h3>
+		
+		<br />
+		<br />
+		<h3><span>Click on the button below to check your headphones volume</span></h3>
+		<br />
+		<button  class='audio' style="font-size:20px" onclick="JavaScript: audiotest()">check the volume </button>
+		<h4> if you can't hear this sound properly then adjust your volume control</h4>
+		<br />
+		<h3><span>Click on the button below to generate the interface</span></h3>
+		<br />
+		<button  class='generate' style = "font-size:20px" onclick="JavaScript: random()">Generate the interface</button>
+	</div>
+	
+	<br />	
+	<br />	
+	
+	<div ALIGN="CENTER" style ="font-size:20px" class="lien" ></div>
+
+</body>	
+
+<script>
+// Warning changement de page
+$(window).bind('beforeunload',function(e){
+return "Are you sure you want to leave this page ? You will be not allowed to repeat the experiment"
+});
+
+// random function
+function random(){
+	
+	randNumber = Math.floor(Math.random() * 3) + 1;
+        // 2 and 3 only
+        // randNumber = Math.floor(Math.random() * 2) + 2;
+	
+        $('.generate').remove();
+	
+	if(randNumber == 1)
+		$('.lien').append('<a href="index1.html" onclick="deleteWarning()">Click on this link to perform the experiment 1 </a>');
+	else if(randNumber == 2)
+		$('.lien').append('<a href="index2.html" onclick="deleteWarning()">Click on this link to perform the experiment 2 </a>');
+	else
+		$('.lien').append('<a href="index3.html" onclick="deleteWarning()">Click on this link to perform the experiment 3 </a>');
+}
+
+function audiotest(){
+sample = new Audio();
+sample.src = 'sound_music/BassClarinet.ff.A2.stereo.ogg';
+sample.load();
+sample.play();
+}
+
+</script>

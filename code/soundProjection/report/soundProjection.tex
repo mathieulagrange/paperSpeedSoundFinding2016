@@ -1,0 +1,73 @@
+  
+\documentclass[12pt,a4paper,fleqn]{tufte-handout} 
+\usepackage{graphicx} 
+\usepackage{morefloats} 
+\usepackage{amsmath} 
+\usepackage{amssymb} 
+\usepackage{rotating} 
+% mcode options for matlab code insertion bw (for printing), numbered (line numbers), framed (frame around code blocks), useliterate (convert Matlab expressions to Latex ones), autolinebreaks (automatic code wraping, use it with caution 
+\usepackage[literate]{mcode} 
+\graphicspath{{figures/}{tex/}{../figures/}{../../}{../}}  
+\title{soundProjection} 
+\author{ Mathieu Lagrange } 
+  
+\begin{document} 
+  
+\maketitle 
+
+Voici les resultats de mon etude sur les projections alternatives a mds.
+
+
+  
+% Please use this file to document your experiment 
+% You can compile the report by setting the option 'report' as detailed in your expLanes configuration file. 
+  \begin{figure}
+  \begin{center}
+  \includegraphics[scale=.5]{figures/urban_pca}
+  \caption{urban pca}
+  \end{center}
+  \end{figure}
+
+ \begin{figure}
+  \begin{center}
+  \includegraphics[scale=.5]{figures/urban_mds}
+  \caption{urban mds}
+  \end{center}
+  \end{figure}
+
+ \begin{figure}
+  \begin{center}
+  \includegraphics[scale=.5]{figures/urban_som}
+  \caption{urban som}
+  \end{center}
+  \end{figure}
+  
+    \begin{figure}
+  \begin{center}
+  \includegraphics[scale=.5]{figures/music_pca}
+  \caption{music pca}
+  \end{center}
+  \end{figure}
+
+ \begin{figure}
+  \begin{center}
+  \includegraphics[scale=.5]{figures/music_mds}
+  \caption{music mds}
+  \end{center}
+  \end{figure}
+
+ \begin{figure}
+  \begin{center}
+  \includegraphics[scale=.5]{figures/music_som}
+  \caption{music som}
+  \end{center}
+  \end{figure}
+
+  
+\input{tex/exposeTmp} % expLanesInsertionFlag DO NOT CLEAR (but move it where you want the generated temporary LaTEX code to be inserted) 
+  
+  
+\bibliographystyle{abbrvnat} 
+\bibliography{bib} 
+  
+\end{document} 

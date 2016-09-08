@@ -1,0 +1,528 @@
+{"name": "instruments",
+   "oggFile": "",
+   "last": false,
+   "children": [
+    {"name": "brass",
+	 "oggFile": "sound_music/Hn-brassy-B3-ff.ogg",
+	 "last": false,
+     "children": [
+      	{"name": "brass_brassy", 
+      	 "oggFile": "sound_music/Hn-brassy-B3-ff.ogg",
+      	 "last": false,
+      	 "children": [
+            {"name": "horn_brassy",
+             "oggFile": "sound_music/Hn-brassy-B3-ff.ogg",
+             "last": true,
+             "children": [
+                {"name": "horn_brassy_1", "size": 1, "oggFile": "sound_music/Hn-brassy-B3-ff.ogg","last": false},
+                {"name": "horn_brassy_2", "size": 1, "oggFile": "sound_music/Hn-brassy-A2-ff.ogg","last": false},
+                {"name": "horn_brassy_3", "size": 1, "oggFile": "sound_music/Hn-brassy-C5-ff.ogg","last": false}
+                ]
+            }, 
+            {"name": "trombone_tenor_brassy",
+             "oggFile": "sound_music/TTbn-brassy-B3-ff.ogg",
+             "last": true,
+             "children": [
+                {"name": "trombone_tenor_brassy_1", "size": 1, "oggFile": "sound_music/TTbn-brassy-B3-ff.ogg","last": false},
+                {"name": "trombone_tenor_brassy_2", "size": 1, "oggFile": "sound_music/TTbn-brassy-A2-ff.ogg","last": false},
+                {"name": "trombone_tenor_brassy_3", "size": 1, "oggFile": "sound_music/TTbn-brassy-G4-ff.ogg","last": false}
+                ]
+            }, 
+            {"name": "trumpet_brassy",
+             "oggFile": "sound_music/TpC-brassy-B4-ff.ogg",
+             "last": true,
+             "children": [
+                {"name": "trumpet_brassy_1", "size": 1, "oggFile": "sound_music/TpC-brassy-B4-ff.ogg","last": false},
+                {"name": "trumpet_brassy_2", "size": 1, "oggFile": "sound_music/TpC-brassy-A3-ff.ogg","last": false},
+                {"name": "trumpet_brassy_3", "size": 1, "oggFile": "sound_music/TpC-brassy-C6-ff.ogg","last": false}
+                ]
+            }, 
+            {"name": "tuba_bass_brassy",
+             "oggFile": "sound_music/BBTb-brassy-D4-ff.ogg",
+             "last": true,
+             "children": [
+                {"name": "tuba_bass_brassy_1", "size": 1, "oggFile": "sound_music/BBTb-brassy-D4-ff.ogg","last": false},
+                {"name": "tuba_bass_brassy_2", "size": 1, "oggFile": "sound_music/BBTb-brassy-Cd4-ff.ogg","last": false},
+                {"name": "tuba_bass_brassy_3", "size": 1, "oggFile": "sound_music/BBTb-brassy-Dd4-ff.ogg","last": false}
+                ]
+            }
+      	  ] 
+        },
+      	{"name": "didgeridoo", 
+      	 "oggFile": "sound_music/21922__anton__drone-key-d-02.ogg",
+      	 "last": true,
+      	 "children":[
+				{"name": "didgeridoo_1", "size": 1, "oggFile": "sound_music/21922__anton__drone-key-d-02.ogg","last": false},
+      	  		{"name": "didgeridoo_2", "size": 1, "oggFile": "sound_music/21922__anton__drone-key-d-01.ogg","last": false},
+      	  		{"name": "didgeridoo_3", "size": 1, "oggFile": "sound_music/21922__anton__drone-key-d-03.ogg","last": false}
+                ]
+      	 },
+      	{"name": "brass_ordinario", 
+      	 "oggFile": "sound_music/TpC-ord-B4-mf.ogg",
+      	 "last": false,
+      	 "children":[
+      	 	{"name": "trumpet_ordinario", 
+      	 	 "oggFile": "sound_music/TpC-ord-B4-mf.ogg",
+      	 	 "last": true,
+      	 	 "children": [
+				{"name": "trumpet_ordinario_1", "size": 1, "oggFile": "sound_music/TpC-ord-B4-mf.ogg","last": false},
+      	  		{"name": "trumpet_ordinario_2", "size": 1, "oggFile": "sound_music/TpC-ord-A3-mf.ogg","last": false},
+      	  		{"name": "trumpet_ordinario_3", "size": 1, "oggFile": "sound_music/TpC-ord-C6-mf.ogg","last": false}
+                ]
+      	  	 },
+      	 	{"name": "horn_ordinario", 
+      	 	 "oggFile": "sound_music/Hn-ord-B3-mf.ogg",
+      	 	 "last": true,
+      	 	 "children": [
+				{"name": "horn_ordinario_1", "size": 1, "oggFile": "sound_music/Hn-ord-B3-mf.ogg","last": false},
+      	  		{"name": "horn_ordinario_2", "size": 1, "oggFile": "sound_music/Hn-ord-A2-mf.ogg","last": false},
+      	  		{"name": "horn_ordinario_3", "size": 1, "oggFile": "sound_music/Hn-ord-C5-mf.ogg","last": false}
+      	     ]
+            },
+      	 	{"name": "trombone_tenor_ordinario", 
+      	 	 "oggFile": "sound_music/TTbn-ord-B3-mp.ogg",
+      	 	 "last": true,
+      	 	 "children": [
+				{"name": "trombone_tenor_ordinario_1", "size": 1, "oggFile": "sound_music/TTbn-ord-B3-mp.ogg","last": false},
+      	  		{"name": "trombone_tenor_ordinario_2", "size": 1, "oggFile": "sound_music/TTbn-ord-A2-mp.ogg","last": false},
+      	  		{"name": "trombone_tenor_ordinario_3", "size": 1, "oggFile": "sound_music/TTbn-ord-C5-mp.ogg","last": false}
+                ]
+      	  	 },
+            {"name": "tuba_bass_ordinario", 
+      	 	 "oggFile": "sound_music/BBTb-ord-A1-mf.ogg",
+      	 	 "last": true,
+      	 	 "children": [
+				{"name": "tuba_bass_ordinario_1", "size": 1, "oggFile": "sound_music/BBTb-ord-A1-mf.ogg","last": false},
+      	  		{"name": "tuba_bass_ordinario_2", "size": 1, "oggFile": "sound_music/BBTb-ord-B2-mf.ogg","last": false},
+      	  		{"name": "tuba_bass_ordinario_3", "size": 1, "oggFile": "sound_music/BBTb-ord-C4-mf.ogg","last": false}
+                ]
+      	  	 }
+            ]
+        }
+        ]
+    },
+    {"name": "percussion",
+	 "oggFile": "sound_music/191542__seidhepriest__tom-mid-4-p.ogg",
+	 "last": false,
+     "children": [
+      	{"name": "membrane", 
+      	 "oggFile": "sound_music/191542__seidhepriest__tom-mid-4-p.ogg",
+      	 "last": false,
+      	 "children": [
+            {"name": "tom_mid",
+             "oggFile": "sound_music/191542__seidhepriest__tom-mid-4-p.ogg",
+             "last": true,
+             "children": [
+                {"name": "tom_mid_1", "size": 1, "oggFile": "sound_music/191542__seidhepriest__tom-mid-4-p.ogg","last": false},
+                {"name": "tom_mid_2", "size": 1, "oggFile": "sound_music/191547__seidhepriest__tom-low-4-p.ogg","last": false},
+                {"name": "tom_mid_3", "size": 1, "oggFile": "sound_music/191553__seidhepriest__tom-high-2-p.ogg","last": false}
+                ]
+            }, 
+            {"name": "timbal",
+             "oggFile": "sound_music/185350__seidhepriest__timbal-hembra-low-4.ogg",
+             "last": true,
+             "children": [
+                {"name": "timbal_1", "size": 1, "oggFile": "sound_music/185350__seidhepriest__timbal-hembra-low-4.ogg","last": false},
+                {"name": "timbal_2", "size": 1, "oggFile": "sound_music/185355__seidhepriest__timbal-macho-high-4.ogg","last": false},
+                {"name": "timbal_3", "size": 1, "oggFile": "sound_music/185358__seidhepriest__timbal-macho-high-1.ogg","last": false}
+                ]
+            }, 
+            {"name": "tumbadora",
+             "oggFile": "sound_music/234375__seidhepriest__tumbadora-3.ogg",
+             "last": true,
+             "children": [
+                {"name": "tumbadora_1", "size": 1, "oggFile": "sound_music/234375__seidhepriest__tumbadora-3.ogg","last": false},
+                {"name": "tumbadora_2", "size": 1, "oggFile": "sound_music/234374__seidhepriest__tumbadora-4.ogg","last": false},
+                {"name": "tumbadora_3", "size": 1, "oggFile": "sound_music/234377__seidhepriest__tumbadora-1.ogg","last": false}
+                ]
+            }
+          ]
+        },
+      	{"name": "gong", 
+      	 "oggFile": "sound_music/20windgong.ff.stereo.ogg",
+      	 "last": false,
+      	 "children": [
+            {"name": "tamtam",
+             "oggFile": "sound_music/20windgong.ff.stereo.ogg",
+             "last": true,
+             "children": [
+                {"name": "tamtam_1", "size": 1, "oggFile": "sound_music/20windgong.ff.stereo.ogg","last": false},
+                {"name": "tamtam_2", "size": 1, "oggFile": "sound_music/22tamtam.ff.stereo.ogg","last": false},
+                {"name": "tamtam_3", "size": 1, "oggFile": "sound_music/28tamtam.ff.stereo.ogg","last": false}
+                ]
+            }, 
+            {"name": "thaigong",
+             "oggFile": "sound_music/thaigong.ff.E4.stereo.ogg",
+             "last": true,
+             "children": [
+                {"name": "thaigong_1", "size": 1, "oggFile": "sound_music/thaigong.ff.E4.stereo.ogg","last": false},
+                {"name": "thaigong_2", "size": 1, "oggFile": "sound_music/thaigong.ff.C5.stereo.ogg","last": false},
+                {"name": "thaigong_3", "size": 1, "oggFile": "sound_music/thaigong.ff.A4.stereo.ogg","last": false}
+                ]
+            }
+          ]
+        },
+      	{"name": "hand", 
+      	 "oggFile": "sound_music/clave4.ff.stereo.ogg",
+      	 "last": false,
+      	 "children": [
+            {"name": "claves",
+             "oggFile": "sound_music/clave4.ff.stereo.ogg",
+             "last": true,
+             "children": [
+                {"name": "claves_1", "size": 1, "oggFile": "sound_music/clave4.ff.stereo.ogg","last": false},
+                {"name": "claves_2", "size": 1, "oggFile": "sound_music/clave1.ff.stereo.ogg","last": false},
+                {"name": "claves_3", "size": 1, "oggFile": "sound_music/clave6.ff.stereo.ogg","last": false}
+                ]
+            },
+            {"name": "bell",
+             "oggFile": "sound_music/339820__inspectorj__hand-bells-high-c-single.ogg",
+             "last": true,
+             "children": [
+                {"name": "bell_1", "size": 1, "oggFile": "sound_music/339820__inspectorj__hand-bells-high-c-single.ogg","last": false},
+                {"name": "bell_2", "size": 1, "oggFile": "sound_music/339816__inspectorj__hand-bells-f-single.ogg","last": false},
+                {"name": "bell_3", "size": 1, "oggFile": "sound_music/339808__inspectorj__hand-bells-c-db-single.ogg","last": false}
+                ]
+            }, 
+            {"name": "castanets",
+             "oggFile": "sound_music/169266__seidhepriest__castagnette-ntg1-4.ogg",
+             "last": true,
+             "children": [
+                {"name": "castanets_1", "size": 1, "oggFile": "sound_music/169266__seidhepriest__castagnette-ntg1-4.ogg","last": false},
+                {"name": "castanets_2", "size": 1, "oggFile": "sound_music/castanet1.ff.stereo.ogg","last": false},
+                {"name": "castanets_3", "size": 1, "oggFile": "sound_music/castanet2.ff.stereo.ogg","last": false}
+                ]
+            },
+            {"name": "triangles",
+             "oggFile": "sound_music/6triangle.ff.stereo.ogg",
+             "last": true,
+             "children": [
+                {"name": "triangles_1", "size": 1, "oggFile": "sound_music/6triangle.ff.stereo.ogg","last": false},
+                {"name": "triangles_2", "size": 1, "oggFile": "sound_music/8triangle.ff.stereo.ogg","last": false}
+                ]
+            },
+            {"name": "woodblocks",
+             "oggFile": "sound_music/5.5wb.ff.stereo.ogg",
+             "last": true,
+             "children": [
+                {"name": "woodblocks_1", "size": 1, "oggFile": "sound_music/5.5wb.ff.stereo.ogg","last": false},
+                {"name": "woodblocks_2", "size": 1, "oggFile": "sound_music/7wb.ff.stereo.ogg","last": false},
+                {"name": "woodblocks_3", "size": 1, "oggFile": "sound_music/8.5wb.ff.stereo.ogg","last": false}
+                ]
+            }
+          ]
+        },
+      	{"name": "keyboard", 
+      	 "oggFile": "sound_music/Xylophone.rosewood.ff.A4.stereo.ogg",
+      	 "last": false,
+      	 "children": [
+            {"name": "xylophone",
+             "oggFile": "sound_music/Xylophone.rosewood.ff.A4.stereo.ogg",
+             "last": true,
+             "children": [
+                {"name": "xylophone_1", "size": 1, "oggFile": "sound_music/Xylophone.rosewood.ff.A4.stereo.ogg","last": false},
+                {"name": "xylophone_2", "size": 1, "oggFile": "sound_music/Xylophone.rosewood.ff.B5.stereo.ogg","last": false},
+                {"name": "xylophone_3", "size": 1, "oggFile": "sound_music/Xylophone.rosewood.ff.C7.stereo.ogg","last": false}
+                ]
+            }, 
+            {"name": "marimba",
+             "oggFile": "sound_music/Marimba.cord.ff.A3.stereo.ogg",
+             "last": true,
+             "children": [
+                {"name": "marimba_1", "size": 1, "oggFile": "sound_music/Marimba.cord.ff.A3.stereo.ogg","last": false},
+                {"name": "marimba_2", "size": 1, "oggFile": "sound_music/Marimba.cord.ff.B4.stereo.ogg","last": false},
+                {"name": "marimba_3", "size": 1, "oggFile": "sound_music/Marimba.cord.ff.C6.stereo.ogg","last": false}
+                ]
+            }
+          ]
+        }
+       ]
+    },
+    {"name": "piano",
+     "oggFile": "sound_music/39186__jobro__piano-ff-039.ogg",
+     "last": true,
+     "children": [
+                {"name": "piano_1", "size": 1, "oggFile": "sound_music/39186__jobro__piano-ff-039.ogg","last": false},
+                {"name": "piano_2", "size": 1, "oggFile": "sound_music/39148__jobro__piano-ff-001.ogg","last": false},
+                {"name": "piano_3", "size": 1, "oggFile": "sound_music/39212__jobro__piano-ff-064.ogg","last": false}
+                ]
+     },       
+    {"name": "voice",
+     "oggFile": "sound_music/30084__herbertboland__femalephrase1-02.ogg",
+     "last": true,
+     "children": [
+                {"name": "voice_1", "size": 1, "oggFile": "sound_music/30084__herbertboland__femalephrase1-02.ogg","last": false},
+                {"name": "voice_2", "size": 1, "oggFile": "sound_music/30084__herbertboland__femalephrase1-01.ogg","last": false},
+                {"name": "voice_3", "size": 1, "oggFile": "sound_music/30084__herbertboland__femalephrase1-03.ogg","last": false}
+                ]
+     }, 
+    {"name": "string",
+     "oggFile": "sound_music/Vn-ord-B4-mf-2c.ogg",
+     "last": false,
+     "children": [
+        {"name": "bowed",
+         "oggFile": "sound_music/Vn-ord-B4-mf-2c.ogg",
+         "last": false,
+         "children": [
+                {"name": "violin_ordinario",
+                 "oggFile": "sound_music/Vn-ord-B4-mf-2c.ogg",
+                 "last": true,
+                 "children": [
+                    {"name": "violin_ordinario_1", "size": 1, "oggFile": "sound_music/Vn-ord-B4-mf-2c.ogg","last": false},
+                    {"name": "violin_ordinario_2", "size": 1, "oggFile": "sound_music/Vn-ord-A3-mf-4c.ogg","last": false},
+                    {"name": "violin_ordinario_3", "size": 1, "oggFile": "sound_music/Vn-ord-C6-mf-1c.ogg","last": false}
+                ]
+                }, 
+                {"name": "viola_ordinario",
+                 "oggFile": "sound_music/Va-ord-A3-mf-4c.ogg",
+                 "last": true,
+                 "children": [
+                    {"name": "viola_ordinario_1", "size": 1, "oggFile": "sound_music/Va-ord-A3-mf-4c.ogg","last": false},
+                    {"name": "viola_ordinario_2", "size": 1, "oggFile": "sound_music/Va-ord-B4-mf-3c.ogg","last": false},
+                    {"name": "viola_ordinario_3", "size": 1, "oggFile": "sound_music/Va-ord-C6-mf-2c.ogg","last": false}
+                ]
+                }, 
+                {"name": "contrabass_ordinario",
+                 "oggFile": "sound_music/Cb-ord-A1-mf-4c.ogg",
+                 "last": true,
+                 "children": [
+                    {"name": "contrabass_ordinario_1", "size": 1, "oggFile": "sound_music/Cb-ord-A1-mf-4c.ogg","last": false},
+                    {"name": "contrabass_ordinario_2", "size": 1, "oggFile": "sound_music/Cb-ord-B2-mf-3c.ogg","last": false},
+                    {"name": "contrabass_ordinario_3", "size": 1, "oggFile": "sound_music/Cb-ord-C4-mf-2c.ogg","last": false}
+                ]
+                }, 
+                {"name": "cello_ordinario",
+                 "oggFile": "sound_music/Vc-ord-A2-mf-4c.ogg",
+                 "last": true,
+                 "children": [
+                    {"name": "cello_ordinario_1", "size": 1, "oggFile": "sound_music/Vc-ord-A2-mf-4c.ogg","last": false},
+                    {"name": "cello_ordinario_2", "size": 1, "oggFile": "sound_music/Vc-ord-B3-mf-2c.ogg","last": false},
+                    {"name": "cello_ordinario_3", "size": 1, "oggFile": "sound_music/Vc-ord-C5-mf-2c.ogg","last": false}
+                ]
+                }
+          ]
+        }, 
+        {"name": "plucked",
+         "oggFile": "sound_music/Vc-pizz-lv-A2-ff-3c.ogg",
+         "last": false,
+         "children": [
+                {"name": "cello_pizzicato",
+                 "oggFile": "sound_music/Vc-pizz-lv-A2-ff-3c.ogg",
+                 "last": true,
+                 "children": [
+                    {"name": "cello_pizzicato_1", "size": 1, "oggFile": "sound_music/Vc-pizz-lv-A2-ff-3c.ogg","last": false},
+                    {"name": "cello_pizzicato_2", "size": 1, "oggFile": "sound_music/Vc-pizz-lv-B3-ff-1c.ogg","last": false},
+                    {"name": "cello_pizzicato_3", "size": 1, "oggFile": "sound_music/Vc-pizz-lv-C5-ff-1c.ogg","last": false}
+                ]
+                },
+                {"name": "violin_pizzicato",
+                 "oggFile": "sound_music/Vn-pizz-lv-B4-mf-3c.ogg",
+                 "last": true,
+                 "children": [
+                    {"name": "violin_pizzicato_1", "size": 1, "oggFile": "sound_music/Vn-pizz-lv-B4-mf-3c.ogg","last": false},
+                    {"name": "violin_pizzicato_2", "size": 1, "oggFile": "sound_music/Vn-pizz-lv-A3-ff-4c.ogg","last": false},
+                    {"name": "violin_pizzicato_3", "size": 1, "oggFile": "sound_music/Vn-pizz-lv-C6-ff-2c.ogg","last": false}
+                ]
+                }, 
+                {"name": "viola_pizzicato",
+                 "oggFile": "sound_music/Va-pizz-lv-A3-mf-3c.ogg",
+                 "last": true,
+                 "children": [
+                    {"name": "viola_pizzicato_1", "size": 1, "oggFile": "sound_music/Va-pizz-lv-A3-mf-3c.ogg","last": false},
+                    {"name": "viola_pizzicato_2", "size": 1, "oggFile": "sound_music/Va-pizz-lv-B4-ff-1c.ogg","last": false},
+                    {"name": "viola_pizzicato_3", "size": 1, "oggFile": "sound_music/Va-pizz-lv-C6-ff-1c.ogg","last": false}
+                ]
+                }, 
+                {"name": "contrabass_pizzicato",
+                 "oggFile": "sound_music/Cb-pizz-lv-A1-ff-3c.ogg",
+                 "last": true,
+                 "children": [
+                    {"name": "contrabass_pizzicato_1", "size": 1, "oggFile": "sound_music/Cb-pizz-lv-A1-ff-3c.ogg","last": false},
+                    {"name": "contrabass_pizzicato_2", "size": 1, "oggFile": "sound_music/Cb-pizz-lv-C4-ff-1c.ogg","last": false},
+                    {"name": "contrabass_pizzicato_3", "size": 1, "oggFile": "sound_music/Cb-pizz-lv-B2-ff-2c.ogg","last": false}
+                ]
+                }, 
+                {"name": "guitar",
+                 "oggFile": "sound_music/Gtr-ord-B3-mf-4c.ogg",
+                 "last": true,
+                 "children": [
+                    {"name": "guitar_1", "size": 1, "oggFile": "sound_music/Gtr-ord-B3-mf-4c.ogg","last": false},
+                    {"name": "guitar_2", "size": 1, "oggFile": "sound_music/Gtr-ord-A2-ff-5c.ogg","last": false},
+                    {"name": "guitar_3", "size": 1, "oggFile": "sound_music/Gtr-ord-C5-mf-2c.ogg","last": false}
+                ]
+                }, 
+                {"name": "harp",
+                 "oggFile": "sound_music/Hp-ord-C5-mf.ogg",
+                 "last": true,
+                 "children": [
+                    {"name": "harp_1", "size": 1, "oggFile": "sound_music/Hp-ord-C5-mf.ogg","last": false},
+                    {"name": "harp_2", "size": 1, "oggFile": "sound_music/Hp-ord-B3-ff.ogg","last": false},
+                    {"name": "harp_3", "size": 1, "oggFile": "sound_music/Hp-ord-A2-ff.ogg","last": false}
+                ]
+                }, 
+                {"name": "harpsichord",
+                 "oggFile": "sound_music/23863__loofa__clav024.ogg",
+                 "last": true,
+                 "children": [
+                    {"name": "harpsichord_1", "size": 1, "oggFile": "sound_music/23863__loofa__clav024.ogg","last": false},
+                    {"name": "harpsichord_2", "size": 1, "oggFile": "sound_music/23858__loofa__clav002.ogg","last": false},
+                    {"name": "harpsichord_3", "size": 1, "oggFile": "sound_music/23867__loofa__clav040.ogg","last": false}
+                ]
+               }
+          ]
+        }
+      ]
+     }, 
+     {"name": "woodwinds",
+      "oggFile": "sound_music/Fl-ord-B5-mf.ogg",
+      "last": false,
+      "children": [
+             {"name": "fluteA",
+              "oggFile": "sound_music/Fl-ord-B5-mf.ogg",
+              "last": false,
+              "children": [             
+                    {"name": "fluteB",
+                     "oggFile": "sound_music/Fl-ord-B5-mf.ogg",
+                     "last": true,
+                     "children": [
+                        {"name": "fluteB_1", "size": 1, "oggFile": "sound_music/Fl-ord-B5-mf.ogg","last": false},
+                        {"name": "fluteB_2", "size": 1, "oggFile": "sound_music/Fl-ord-A4-ff.ogg","last": false},
+                        {"name": "fluteB_3", "size": 1, "oggFile": "sound_music/Fl-ord-C7-mf.ogg","last": false}
+                        ]
+                    },
+                    {"name": "flute_alto",
+                     "oggFile": "sound_music/AltoFlute.vib.ff.B4.stereo.ogg",
+                     "last": true,
+                     "children": [
+                        {"name": "flute_alto_1", "size": 1, "oggFile": "sound_music/AltoFlute.vib.ff.B4.stereo.ogg","last": false},
+                        {"name": "flute_alto_2", "size": 1, "oggFile": "sound_music/AltoFlute.vib.ff.A3.stereo.ogg","last": false},
+                        {"name": "flute_alto_3", "size": 1, "oggFile": "sound_music/AltoFlute.vib.ff.C6.stereo.ogg","last": false}
+                        ]
+                    },
+                    {"name": "flute_bass",
+                     "oggFile": "sound_music/BassFlute.ff.A3.stereo.ogg",
+                     "last": true,
+                     "children": [
+                        {"name": "flute_bass_1", "size": 1, "oggFile": "sound_music/BassFlute.ff.A3.stereo.ogg","last": false},
+                        {"name": "flute_bass_2", "size": 1, "oggFile": "sound_music/BassFlute.ff.B4.stereo.ogg","last": false},
+                        {"name": "flute_bass_3", "size": 1, "oggFile": "sound_music/BassFlute.ff.C6.stereo.ogg","last": false}
+                        ]
+                    },
+                    {"name": "panflute",
+                     "oggFile": "sound_music/278175__mrshoes__panflute-scale-octave-and-a-half-02.ogg",
+                     "last": true,
+                     "children": [
+                        {"name": "panflute_1", "size": 1, "oggFile": "sound_music/278175__mrshoes__panflute-scale-octave-and-a-half-02.ogg","last": false},
+                        {"name": "panflute_2", "size": 1, "oggFile": "sound_music/278175__mrshoes__panflute-scale-octave-and-a-half-01.ogg","last": false},
+                        {"name": "panflute_3", "size": 1, "oggFile": "sound_music/278175__mrshoes__panflute-scale-octave-and-a-half-03.ogg","last": false}
+                        ]
+                    }
+              ]
+            },
+             {"name": "reed_double",
+              "oggFile": "sound_music/Bn-ord-B3-mf.ogg",
+              "last": false,
+              "children": [
+                    {"name": "basson",
+                     "oggFile": "sound_music/Bn-ord-B3-mf.ogg",
+                     "last": true,
+                     "children": [
+                        {"name": "basson_1", "size": 1, "oggFile": "sound_music/Bn-ord-B3-mf.ogg","last": false},
+                        {"name": "basson_2", "size": 1, "oggFile": "sound_music/Bn-ord-A2-mf.ogg","last": false},
+                        {"name": "basson_3", "size": 1, "oggFile": "sound_music/Bn-ord-C5-mf.ogg","last": false}
+                        ]
+                    },
+                    {"name": "oboe",
+                     "oggFile": "sound_music/Ob-ord-A4-mf.ogg",
+                     "last": true,
+                     "children": [
+                        {"name": "oboe_1", "size": 1, "oggFile": "sound_music/Ob-ord-A4-mf.ogg","last": false},
+                        {"name": "oboe_2", "size": 1, "oggFile": "sound_music/Ob-ord-B3-mf.ogg","last": false},
+                        {"name": "oboe_3", "size": 1, "oggFile": "sound_music/Ob-ord-C6-mf.ogg","last": false}
+                        ]
+                    }
+              ]
+            },
+             {"name": "reed_free",
+              "oggFile": "sound_music/Acc-ord-B3-mf.ogg",
+              "last": false,
+              "children": [
+                    {"name": "accordion",
+                     "oggFile": "sound_music/Acc-ord-B3-mf.ogg",
+                     "last": true,
+                     "children": [
+                        {"name": "accordion_1", "size": 1, "oggFile": "sound_music/Acc-ord-B3-mf.ogg","last": false},
+                        {"name": "accordion_2", "size": 1, "oggFile": "sound_music/Acc-ord-C5-mf.ogg","last": false},
+                        {"name": "accordion_3", "size": 1, "oggFile": "sound_music/Acc-ord-A2-mf.ogg","last": false}
+                        ]
+                    },
+                    {"name": "harmonica",
+                     "oggFile": "sound_music/116892__cbeeching__c-harmonica-3.ogg",
+                     "last": true,
+                     "children": [
+                        {"name": "harmonica_1", "size": 1, "oggFile": "sound_music/116892__cbeeching__c-harmonica-3.ogg","last": false},
+                        {"name": "harmonica_2", "size": 1, "oggFile": "sound_music/116903__cbeeching__e-harmonica-3.ogg","last": false},
+                        {"name": "harmonica_3", "size": 1, "oggFile": "sound_music/116896__cbeeching__d-harmonica-3.ogg","last": false}
+                        ]
+                    }
+              ]
+            },
+             {"name": "reed_single",
+              "oggFile": "sound_music/BassClarinet.ff.B3.stereo.ogg",
+              "last": false,
+              "children": [
+                    {"name": "clarinetA",
+                     "oggFile": "sound_music/BassClarinet.ff.B3.stereo.ogg",
+                     "last": false,
+                     "children": [
+                            {"name": "clarinet_bass",
+                             "oggFile": "sound_music/BassClarinet.ff.B3.stereo.ogg",
+                             "last": true,
+                             "children": [
+                                {"name": "clarinet_bass_1", "size": 1, "oggFile": "sound_music/BassClarinet.ff.B3.stereo.ogg","last": false},
+                                {"name": "clarinet_bass_2", "size": 1, "oggFile": "sound_music/BassClarinet.ff.A2.stereo.ogg","last": false},
+                                {"name": "clarinet_bass_3", "size": 1, "oggFile": "sound_music/BassClarinet.ff.C5.stereo.ogg","last": false}
+                                ]
+                            },
+                            {"name": "clarinetB",
+                             "oggFile": "sound_music/BbCl-ord-B4-mf.ogg",
+                             "last": true,
+                             "children": [
+                                {"name": "clarinetB_1", "size": 1, "oggFile": "sound_music/BbCl-ord-B4-mf.ogg","last": false},
+                                {"name": "clarinetB_2", "size": 1, "oggFile": "sound_music/BbCl-ord-A3-mf.ogg","last": false},
+                                {"name": "clarinetB_3", "size": 1, "oggFile": "sound_music/BbCl-ord-C6-mf.ogg","last": false}
+                                ]
+                            }
+                     ]
+                    },
+                    {"name": "sax",
+                     "oggFile": "sound_music/SopSax.vib.ff.B4.stereo.ogg",
+                     "last": false,
+                     "children": [
+                            {"name": "sax_soprano",
+                             "oggFile": "sound_music/SopSax.vib.ff.B4.stereo.ogg",
+                             "last": true,
+                             "children": [
+                                {"name": "sax_soprano_1", "size": 1, "oggFile": "sound_music/SopSax.vib.ff.B4.stereo.ogg","last": false},
+                                {"name": "sax_soprano_2", "size": 1, "oggFile": "sound_music/SopSax.vib.ff.A3.stereo.ogg","last": false},
+                                {"name": "sax_soprano_3", "size": 1, "oggFile": "sound_music/SopSax.vib.ff.C6.stereo.ogg","last": false}
+                                ]
+                            },  
+                            {"name": "sax_alto",
+                             "oggFile": "sound_music/ASax-ord-D4-mf.ogg",
+                             "last": true,
+                             "children": [
+                                {"name": "sax_alto_1", "size": 1, "oggFile": "sound_music/ASax-ord-D4-mf.ogg","last": false},
+                                {"name": "sax_alto_2", "size": 1, "oggFile": "sound_music/ASax-ord-E3-mf.ogg","last": false},
+                                {"name": "sax_alto_3", "size": 1, "oggFile": "sound_music/ASax-ord-C5-mf.ogg","last": false}
+                                ]
+                            }
+                     ]
+                    }
+              ]
+            }
+      ]
+     }
+  ]
+}
+

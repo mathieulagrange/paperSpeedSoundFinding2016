@@ -1,0 +1,7 @@
+database === {'urban', 'music'}
+features === {'mfcc'}
+projection =2== {'id', 'pca', 'mds', 'som'}
+distance === {'euclidean'}
+neurons =2=3/4= 1:12
+spread =2=3/4= 0:.1:1
+nbRuns =2=3/4= 1:10

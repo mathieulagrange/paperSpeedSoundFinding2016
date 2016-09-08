@@ -1,0 +1,162 @@
+{
+	"data": [
+		{
+			"database": "urban",
+			"hubRatio": "0.07",
+			"meanAveragePrecision": "0.38",
+			"meanReciprocalRank": "1.00",
+			"orpheanRatio": "0.01",
+			"precisionAt5": "0.50",
+			"precisionAtCompleteRecall": "0.20",
+			"rank": "5.00",
+			"recallAt5": "0.11",
+			"reversibilityRate": "0.77",
+			"time": "8.01"
+		},
+		{
+			"database": "music",
+			"hubRatio": "0.07",
+			"meanAveragePrecision": "0.39",
+			"meanReciprocalRank": "1.00",
+			"orpheanRatio": "0.00",
+			"precisionAt5": "0.42",
+			"precisionAtCompleteRecall": "0.22",
+			"rank": "5.00",
+			"recallAt5": "0.17",
+			"reversibilityRate": "0.84",
+			"time": "7.73"
+		}
+	],
+	"p": {
+		"orderFactor": null,
+		"orderSetting": null,
+		"expand": 0,
+		"obs": [1,2,3,4,5,6,7,8,9,10],
+		"uncertainty": [1,2,3,4,5,6,7,8,9,10],
+		"highlight": 0,
+		"title": "projection: mds",
+		"name": "projection: mds",
+		"caption": "projection: mds",
+		"multipage": 0,
+		"sort": 0,
+		"mask": [],
+		"step": 0,
+		"label": "prmd",
+		"put": 3,
+		"save": 0,
+		"report": 1,
+		"percent": -1,
+		"legendLocation": "BestOutSide",
+		"integrate": 0,
+		"total": "none",
+		"addSpecification": [],
+		"addSettingSpecification": [],
+		"orientation": "v",
+		"shortObservations": -1,
+		"shortFactors": -1,
+		"fontSize": "",
+		"visible": 1,
+		"number": 0,
+		"showMissingSettings": 0,
+		"precision": [2,2,2,2,2,2,2,2,2,2],
+		"show": "data",
+		"numericObservations": 0,
+		"compactLabels": 0,
+		"highlightStyle": "best",
+		"highlightColor": 1,
+		"mergeDisplay": "",
+		"noFactor": 0,
+		"noObservation": 0,
+		"data": null,
+		"rotateAxis": 0,
+		"marker": [
+			"x",
+			"d",
+			"o",
+			"s",
+			"*",
+			"+",
+			".",
+			"^",
+			"<",
+			">",
+			"v",
+			"h",
+			"p"
+		],
+		"color": 1,
+		"plotCommand": [],
+		"plotAxisProperties": [],
+		"design": [],
+		"units": [],
+		"labels": [
+			"urban",
+			"music"
+		],
+		"tight": 0,
+		"better": 0,
+		"legendNames": [
+			"hubRatio",
+			"meanAveragePrecision",
+			"meanReciprocalRank",
+			"orpheanRatio",
+			"precisionAt5",
+			"precisionAtCompleteRecall",
+			"rank",
+			"recallAt5",
+			"reversibilityRate",
+			"time"
+		],
+		"xName": "",
+		"rowNames": [
+			[
+				"urban"
+			],
+			[
+				"music"
+			]
+		],
+		"columnNames": [
+			"database",
+			"hubRatio",
+			"meanAveragePrecision",
+			"meanReciprocalRank",
+			"orpheanRatio",
+			"precisionAt5",
+			"precisionAtCompleteRecall",
+			"rank",
+			"recallAt5",
+			"reversibilityRate",
+			"time"
+		],
+		"factorNames": [
+			"database"
+		],
+		"obsNames": [
+			"hubRatio",
+			"meanAveragePrecision",
+			"meanReciprocalRank",
+			"orpheanRatio",
+			"precisionAt5",
+			"precisionAtCompleteRecall",
+			"rank",
+			"recallAt5",
+			"reversibilityRate",
+			"time"
+		],
+		"methodLabel": "",
+		"xAxis": "",
+		"axisLabels": [
+			"hubRatio",
+			"meanAveragePrecision",
+			"meanReciprocalRank",
+			"orpheanRatio",
+			"precisionAt5",
+			"precisionAtCompleteRecall",
+			"rank",
+			"recallAt5",
+			"reversibilityRate",
+			"time"
+		]
+	}
+}

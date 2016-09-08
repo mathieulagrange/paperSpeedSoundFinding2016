@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for i in $(ls *.wav | sed -e s/\.wav$//); 
+	do 
+		echo $i;
+		sox $i.wav -b 16 -r 44100 ~/Dropbox/projets/ssf/interface/sound_music/$i.ogg norm -12 channels 1 fade q 00:00:00.01 0; 
+	done 
+

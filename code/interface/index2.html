@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<TITLE>Speed Sound Finding</TITLE>
+<style>
+h3{
+	font-family:"helvetica";
+	}
+	
+p{
+font-family:"helvetica";
+font-size:12px;
+}
+
+circle {
+  fill: rgba(255,255,255,0.2);
+  stroke: black;
+  stroke-width: 1px;
+}
+
+.leaf circle {
+  fill: rgba(74,74,74,1);
+  fill-opacity: 1;
+}
+.btn_taille{
+font-size:14px;
+}
+.btn_hidden{
+width:0px;
+height:0px;
+visibility: hidden;
+}
+
+p.runningInfo input {
+border: none;
+}
+</style>
+
+<body>
+
+	<script type="text/javascript" src="js/src/d3.js"></script>
+	<script type="text/javascript" src="js/src/json2.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/XP.js"></script>	
+	<script type="text/javascript" src="js/ajax.js"></script>
+	<script type="text/javascript" src="js/src/jquery.min.js"></script>
+
+
+	<div ALIGN="CENTER" >
+		<h3> Please read the <a href="instructions.html" style = "font-size:20px" target="_blank">instructions</a>  carefully before starting</h3>
+	</div>
+
+<!-- Form : send data / timer  -->
+<form method="POST" name="timeform" action="">
+	<p><input type=text name="nomSujet" size="10" style="width:150px" class="btn_taille"> Enter your email address (It will remain strictly confidential).</p>
+
+	<p><input type=checkbox name="resultForward" id="box"> Check this box if you wish to be informed of the experiment results.</p>
+
+	<p><select style="width:150px" class="btn_taille" id="indexAudioDevice"><option>Select</option><option>Headphones</option><option>Internal Speakers</option><option>Speakers</option></select> Choose your audio device.</p>
+
+
+	  <p class="runningInfo">
+	    Trial number:&nbsp;<input type=text name="numeroSoncible" size="3" style="width:18px; text-align:right; font-weight:bold" class="btn_taille" readonly> /13
+	    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    Experiment state:&nbsp;<input type=text name="etat" value="" size="10" style="width:78px; font-weight: bold" class="btn_taille" readonly>
+	    <input type=text name="timetextarea" value="00:00.000"  class="btn_hidden"> 
+	    <input type=text name="laptime"  class="btn_hidden" >
+	  </p>
+
+</form>
+
+		<button onclick="JavaScript: playTargetSnd()" id="currentTargetSnd">Play target sound</button>	
+		<button onclick="JavaScript: found(_sndCollection);" id="foundbutton">Click if found</button>		
+		
+		<div id="d3visu" ALIGN="CENTER" ></div>
+</body>		
+<script>
+// Index experience
+var typeXP =2;
+// Warning changement de page
+$(window).bind('beforeunload',function(e){
+closeSave();
+return "Are you sure you want to leave this page ? You will be not allowed to repeat the experiment."
+});
+// Sauvegarde donnees experience validation
+var indexSaveXP = 0;
+var indexTargetSnd = 0;
+var saveXP = [];
+saveXP[indexTargetSnd] = [];
+document.timeform.numeroSoncible.value = indexTargetSnd + 1;
+timeDebut = Date.now();
+
+// Initialisation de l'espace de stockage des fichiers audios
+var _sndCollection = [];
+
+// Intialisation des son cibles.
+// var targetSnd = ["sound_urban/079_11_rire_2.ogg","sound_urban/073_voiture_passage_3.ogg","sound_urban/animaux_6003_chien53-1.ogg","sound_urban/klaxon_voiture_1.ogg","sound_urban/jeux_tennis_6031_81-2-81-3.ogg","sound_urban/032_cris_enfant_8.ogg","sound_urban/Pas_6016_femme_terre_90-1.ogg","sound_urban/velo_6010_32-2.ogg","sound_urban/Travaux_6012_51-2.ogg","sound_urban/047_scooter_passage_2.ogg","sound_urban/Travaux_6011_39-1.ogg","sound_urban/oiseaux_corbeau_8-1.ogg","sound_urban/US_Alarme_voiture_3.ogg"];
+var targetSnd = ["sound_music/Hn-brassy-A2-ff.ogg","sound_music/21922__anton__drone-key-d-03.ogg","sound_music/TTbn-ord-C5-mp.ogg","sound_music/185358__seidhepriest__timbal-macho-high-1.ogg","sound_music/thaigong.ff.A4.stereo.ogg","sound_music/7wb.ff.stereo.ogg","sound_music/30084__herbertboland__femalephrase1-01.ogg","sound_music/39212__jobro__piano-ff-064.ogg","sound_music/Cb-ord-B2-mf-3c.ogg","sound_music/Gtr-ord-C5-mf-2c.ogg","sound_music/BassFlute.ff.C6.stereo.ogg","sound_music/Acc-ord-C5-mf.ogg","sound_music/ASax-ord-E3-mf.ogg"];
+
+targetSnd = shuffle(targetSnd);
+currentTargetSnd = new Audio();
+currentTargetSnd.src = targetSnd[indexTargetSnd];
+
+
+// Initialisation du svgSample
+var diameter = window.innerHeight - 100,
+    format = d3.format(",d");
+
+var pack = d3.layout.pack()
+    .size([diameter - 4, diameter - 4])
+    .value(function(d) { return d.size; });
+
+var svg = d3.select("#d3visu").append("svg")
+    .attr("width", diameter)
+    .attr("height", diameter)
+    .append("g")
+    .attr("transform", "translate(2,2)");
+
+var node;
+// Import du fichier Json
+d3.json("json_csv/typologie_music.json", function(error, root) {
+	node = svg.datum(root).selectAll(".node")
+      .data(pack.nodes)
+      .enter().append("g")
+      .attr("class", function(d) {return d.children ? "node" : "leaf node"; })
+	  .attr("name",function(d){return d.name})
+	  .attr("oggFile",function(d){return d.oggFile})
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+	
+	////////////////////////////////////////////////////////////////////
+	// Creation du cercle principal
+	node.filter(function(d){return d.name == root.name})
+		.append("circle")
+		.attr("r", function(d) { return d.r })
+		.attr("name", function(d) { return d.name })
+		.style("stroke","red");
+	////////////////////////////////////////////////////////////////////
+	// Creation des leaf node
+	node.filter(function(d){return d3.select(this).attr('class') == "leaf node"})
+		.append('circle')
+		.attr("r", function(d){return d.r - 5*d.r/100})
+		.attr("name", function(d) { return d.name; })
+		.attr("class", function(d) {return d.children ? "node" : "leaf node"; })
+		.style('stroke', 'black');
+	
+
+	////////////////////////////////////////////////////////////////////
+	node.filter(function(d){return d3.select(this).attr('class') == "leaf node"})
+		.on('mousedown', function(d){
+							
+							// Pause son cible 
+							currentTargetSnd.pause()
+		
+							// save Data
+							document.timeform.etat.value = "In progress";
+							saveDataXP(d.oggFile,false);
+							
+					
+							// suppression du focus
+							//node
+							d3.selectAll("circle").style("stroke-width","1");
+							//leaf node
+							d3.selectAll("circle").filter(function(d){return d3.select(this).attr('class') == "leaf node"})
+						 						  .style('fill', 'rgba(74,74,74,1)')
+						 						  .style("fill-opacity","1");
+							// focus
+							var circleTemp = d3.select(this).attr('name');
+							d3.selectAll("circle").filter(function(d){return circleTemp == d.name}).style("fill","black").style("stroke-width","3");
+							
+							// AUDIO
+							// Arret des sons precedents
+							audioStop(_sndCollection);
+							
+							// Creation de la playlist
+							var _mySnd = new Audio(d.oggFile);
+							_sndCollection[0] = new Audio();
+							_sndCollection[0].src = _mySnd.src;
+                                                        document.body.style.cursor="progress";
+                                                        _sndCollection[0].addEventListener("stalled", function () {document.body.style.cursor="progress";});
+                                                        _sndCollection[0].addEventListener("play", function () {document.body.style.cursor="";});
+                                                        _sndCollection[0].addEventListener("playing", function () {document.body.style.cursor="";});
+                                                        _sndCollection[0].addEventListener("ended", function () {document.body.style.cursor="";});
+							_sndCollection[0].load();
+							_sndCollection[0].play();
+							
+		});	
+	
+	//Fonction d arret du son si on sort du svg
+//	svg.on('mouseleave', function(d){
+//							// suppression du focus (sauf leaf node)
+//							// d3.selectAll("circle").filter(function(d){return d3.select(this).attr('class') != "leaf node"}).style("stroke-width","1");
+//							// AUDIO
+//							// Arret des sons precedents
+//							audioStop(_sndCollection);
+//							// Save pause
+//							saveDataXP('pause')
+//	});
+	
+	//Fonction d arret du son si on clique sur le cercle principal
+	node.filter(function(d){return d.name == root.name }).on('mousedown', function(d){
+
+
+							// AUDIO
+							// Arret des sons precedents
+							audioStop(_sndCollection);
+							// Save pause
+							saveDataXP('pause')
+	});
+	
+	// Visu-selection leaf node
+	node.filter(function(d){return d3.select(this).attr('class') == "leaf node"}).on('mouseenter',function(d){
+							//focus
+							circleTemp = d3.select(this).attr('name');
+							d3.selectAll("circle").filter(function(d){return circleTemp == d.name}).style("fill-opacity","0.3");
+							
+	});
+	
+	node.filter(function(d){return d3.select(this).attr('class') == "leaf node"}).on('mouseout',function(d){
+							//focus
+							circleTemp = d3.select(this).attr('name');
+							d3.selectAll("circle").filter(function(d){return circleTemp == d.name}).style("fill-opacity","1");
+	});
+
+}); // end d3.json
+
+
+
+</script>
